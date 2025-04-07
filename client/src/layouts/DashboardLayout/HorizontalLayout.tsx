@@ -12,8 +12,7 @@ const HorizontalLayout = () => {
     const [collapsed, setCollapsed] = useState(false);
 
     return (
-        // <Layout hasSider className="h-screen">
-        <Layout hasSider>
+        <Layout hasSider className="h-screen">
             <ResponsiveSider collapsed={collapsed} setCollapsed={setCollapsed} />
             <Layout>
                 <HeaderLayout collapsed={collapsed} setCollapsed={setCollapsed} />

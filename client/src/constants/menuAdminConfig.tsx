@@ -30,3 +30,5 @@ const menuAdminConfig = () => {
 }
 
 export default menuAdminConfig
+
+
