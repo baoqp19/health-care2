@@ -7,20 +7,16 @@ import { useNavigate } from "react-router-dom";
 const { Sider } = Layout;
 const { useBreakpoint } = Grid;
 
-
 type ResponsiveSiderProps = {
     collapsed: boolean;
     setCollapsed: (collapsed: boolean) => void;
 };
 
-
 const ResponsiveSider = ({ collapsed, setCollapsed }: ResponsiveSiderProps) => {
-
 
     const navigate = useNavigate();
     const [isMobile, setIsMobile] = useState(false);
     const screens = useBreakpoint();  // trả về true false
-
 
     useEffect(() => {
         setIsMobile(!screens.lg);

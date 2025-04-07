@@ -5,8 +5,8 @@ import {
   SearchOutlined,
 } from "@ant-design/icons";
 import { Header } from "antd/es/layout/layout";
-import UserDropdown from ".";
 import LanguageSwitcher from "../../components/languageSwitcher";
+import UserDropdown from "./UserDropdown";
 
 type HeaderLayoutProps = {
   collapsed: boolean;

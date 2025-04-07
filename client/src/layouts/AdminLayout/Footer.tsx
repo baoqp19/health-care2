@@ -7,7 +7,7 @@ const FooterLayout = () => {
                 textAlign: "center",
             }}
         >
-            Copyright © {new Date().getFullYear()} Created by <span className="font-bold">hgbaodev</span>
+            Copyright © {new Date().getFullYear()} Created by <span className="font-bold">baodev</span>
         </Footer>
     );
 };
