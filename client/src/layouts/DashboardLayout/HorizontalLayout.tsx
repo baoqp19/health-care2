@@ -12,14 +12,15 @@ const HorizontalLayout = () => {
     const [collapsed, setCollapsed] = useState(false);
 
     return (
-        <Layout hasSider className="h-screen">
+        // <Layout hasSider className="h-screen">
+        <Layout hasSider>
             <ResponsiveSider collapsed={collapsed} setCollapsed={setCollapsed} />
             <Layout>
                 <HeaderLayout collapsed={collapsed} setCollapsed={setCollapsed} />
                 <Content className="px-3 py-3 content overflow-auto">
                     <Outlet />
                 </Content>
-                <FooterLayout />
+                {/* <FooterLayout /> */}
             </Layout>
         </Layout>
     );

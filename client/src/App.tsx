@@ -1,20 +1,21 @@
 import { ConfigProvider, App as AntApp } from 'antd';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { ThemeRoutes } from './routes';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-import { GOOGLE_OAUTH_CLIENT_ID } from "./config/env";
+// import { GOOGLE_OAUTH_CLIENT_ID } from "./config/env";
 
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
 import "./index.css";
 
 import "./i18n"
+import { ThemeRoutes } from './routes';
 
 const queryClient = new QueryClient();
 
 
 function App() {
+  
   const router = createBrowserRouter(ThemeRoutes);
 
   return (

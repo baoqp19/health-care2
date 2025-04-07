@@ -40,17 +40,28 @@ const MenuCustom: React.FC<MenuCustomProps> = ({ isMobile, onClose, theme = "lig
     return item ? [item.key] : [];
   }, [location.pathname, findItemByPath]);
 
-  const handleMenuClick: MenuProps['onClick'] = useCallback(
-    (e: any) => {
-      if (isMobile) {
-        onClose();
-      }
-      if (e.item?.props?.path) {
-        navigate(e.item.props.path);
+  const handleMenuClick: MenuProps["onClick"] = useCallback(
+    ({ key }: any) => {
+      const clickedItem = findItemByKey(menuItems, key);
+      if (clickedItem?.path) {
+        navigate(clickedItem.path);
+        if (isMobile) {
+          onClose();
+        }
       }
     },
-    [isMobile, onClose, navigate]
+    [menuItems, navigate, isMobile, onClose]
   );
+
+  const findItemByKey = (items: any[], key: string): any => {
+    for (const item of items) {
+      if (item.key === key) return item;
+      if (item.children) {
+        const child = findItemByKey(item.children, key);
+        if (child) return child;
+      }
+    }
+  };
 
   return (
     <ConfigProvider

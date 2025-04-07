@@ -54,45 +54,45 @@ export const useLogin = (options: UseLoginOptions = {}) => {
     });
 };
 
-// ✅ Kiểu dữ liệu chuẩn
-export type GoogleLoginRequest = {
-    credential?: string;
-    select_by?: string;
-    clientId?: string;
-};
+// // ✅ Kiểu dữ liệu chuẩn
+// export type GoogleLoginRequest = {
+//     credential?: string;
+//     select_by?: string;
+//     clientId?: string;
+// };
 
-export type GoogleLoginResponse = {
-    credential: string;
-};
+// export type GoogleLoginResponse = {
+//     credential: string;
+// };
 
-export type GoogleLoginData = {
-    data: GoogleLoginRequest;
-};
+// export type GoogleLoginData = {
+//     data: GoogleLoginRequest;
+// };
 
-type MutationConfig = {
-    onSuccess?: (data: GoogleLoginResponse) => void;
-    onError?: (error: any) => void;
-}
+// type MutationConfig = {
+//     onSuccess?: (data: GoogleLoginResponse) => void;
+//     onError?: (error: any) => void;
+// }
 
-// Cập nhật hàm `useGoogleLogin` để nhận `GoogleLoginData`
-export const useGoogleLogin = async ({ data }: GoogleLoginData): Promise<GoogleLoginResponse> => {
-    const response: AxiosResponse<GoogleLoginResponse> = await axios.post<GoogleLoginResponse>(`/oauth2/google`, data);
-    return response.data;
-};
+// // Cập nhật hàm `useGoogleLogin` để nhận `GoogleLoginData`
+// export const googleLogin = async ({ data }: GoogleLoginData): Promise<GoogleLoginResponse> => {
+//     const response: AxiosResponse<GoogleLoginResponse> = await axios.post<GoogleLoginResponse>(`/oauth2/google`, data);
+//     return response.data;
+// };
 
-// ✅ Hook mutation
-export const useGoogleLoginMutation = ({
-    mutationConfig,
-}: {
-    mutationConfig: MutationConfig;
-}) => {
-    const { onSuccess, ...restConfig } = mutationConfig || {};
+// // ✅ Hook mutation
+// export const useGoogleLoginMutation = ({
+//     mutationConfig,
+// }: {
+//     mutationConfig: MutationConfig;
+// }) => {
+//     const { onSuccess, ...restConfig } = mutationConfig || {};
 
-    return useMutation<GoogleLoginResponse, any, GoogleLoginData>({
-        mutationFn: useGoogleLogin,
-        onSuccess: (data, variables, context) => {
-            onSuccess?.(data);
-        },
-        ...restConfig,
-    });
-};
+//     return useMutation<GoogleLoginResponse, any, GoogleLoginData>({
+//         mutationFn: googleLogin,
+//         onSuccess: (data, variables, context) => {
+//             onSuccess?.(data);
+//         },
+//         ...restConfig,
+//     });
+// };

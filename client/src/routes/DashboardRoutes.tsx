@@ -2,7 +2,6 @@
 import React from "react";
 import Loadable from "../components/Loadable";
 import PrivateRoute from "../gurads/PrivateRoutes";
-import { RouteObject } from "react-router-dom";
 import DashboardLayout from "../layouts/DashboardLayout";
 import VaccinationPage from "../pages/manager/VaccinationPage";
 import AppointmentPage from "../pages/manager/AppointmentPage";
@@ -20,68 +19,65 @@ const MedicalRecordPage = Loadable(React.lazy(() => import('../pages/manager/Med
 const DocumentPage = Loadable(React.lazy(() => import('../pages/manager/DocumentPage')));
 const HealthStatsPage = Loadable(React.lazy(() => import('../pages/manager/HealthStatsPage')))
 
-export const DashboardRoutes: RouteObject = {
-
-  children: [
-    {
-      path: '/manager',
-      element: <PrivateRoute element={<DashboardLayout />} />,
-      children: [
-        {
-          path: "",
-          element: <DashBoardPage />
-        },
-        {
-          path: 'members',
-          element: <MemberPage />
-        },
-        {
-          path: 'allergies',
-          element: <AllergyPage />
-        },
-        {
-          path: 'medications',
-          element: <MedicationPage />
-        },
-        {
-          path: 'vaccinations',
-          element: <VaccinationPage />
-        },
-        {
-          path: 'emergency-contacts',
-          element: <EmergencyContactPage />
-        },
-        {
-          path: 'help-support',
-          element: <HelpPage />
-        },
-        {
-          path: 'health-stats',
-          element: <HealthStatsPage />
-        },
-        {
-          path: 'medical-records',
-          // element: <PrivateRoute element={<MedicalRecordPage />} />
-          element: <MedicalRecordPage />
-        },
-        {
-          path: 'documents',
-          // element: <PrivateRoute element={<DocumentPage />} />
-          element: <DocumentPage />
-        },
-        {
-          path: 'appointments',
-          element: <AppointmentPage />
-        },
-        {
-          path: 'notes',
-          element: <NotePage />
-        },
-        {
-          path: 'chat-ai',
-          element: <ChatPage />
-        }
-      ],
-    },
-  ],
-};
+export const DashboardRoutes = [
+  {
+    path: '/manager',
+    element: <PrivateRoute element={<DashboardLayout />} />,
+    children: [
+      {
+        path: "",
+        element: <DashBoardPage />
+      },
+      {
+        path: 'members',
+        element: <MemberPage />
+      },
+      {
+        path: 'allergies',
+        element: <AllergyPage />
+      },
+      {
+        path: 'medications',
+        element: <MedicationPage />
+      },
+      {
+        path: 'vaccinations',
+        element: <VaccinationPage />
+      },
+      {
+        path: 'emergency-contacts',
+        element: <EmergencyContactPage />
+      },
+      {
+        path: 'help-support',
+        element: <HelpPage />
+      },
+      {
+        path: 'health-stats',
+        element: <HealthStatsPage />
+      },
+      {
+        path: 'medical-records',
+        // element: <PrivateRoute element={<MedicalRecordPage />} />
+        element: <MedicalRecordPage />
+      },
+      {
+        path: 'documents',
+        // element: <PrivateRoute element={<DocumentPage />} />
+        element: <DocumentPage />
+      },
+      {
+        path: 'appointments',
+        element: <AppointmentPage />
+      },
+      {
+        path: 'notes',
+        element: <NotePage />
+      },
+      {
+        path: 'chat-ai',
+        element: <ChatPage />
+      }
+    ],
+  },
+]

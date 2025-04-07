@@ -36,7 +36,7 @@ const ResponsiveSider = ({ collapsed, setCollapsed }: ResponsiveSiderProps) => {
                     styles={{ header: { display: "none" }, body: { padding: "10px" } }}
                     width={300}
                 >
-                    <img src={logo} onClick={() => navigate('/')} className="w-14 h-14" />
+                    {/* <img src={logo} onClick={() => navigate('/')} className="w-14 h-14" /> */}
                     <MenuCustom
                         mode="inline"
                         isMobile={isMobile}
