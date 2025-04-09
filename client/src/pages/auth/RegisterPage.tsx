@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { RegisterProps, useRegister } from "../../api/auth/register";
 import { useTranslation } from "react-i18next";
+import { useState } from "react";
 
 
 const RegisterPage = () => {
@@ -11,6 +12,8 @@ const RegisterPage = () => {
   const [form] = Form.useForm();
 
   const navigate = useNavigate();
+
+  const [loadingComfirm, setLoadingComfirm] = useState(false);
 
   const { t } = useTranslation(); // Correct hook
 
@@ -23,10 +26,12 @@ const RegisterPage = () => {
     },
     onError: (error) => {
       message.error("Registration failed");
+      setLoadingComfirm(false);
     },
   });
 
   const onFinish = (values: RegisterProps) => {
+    setLoadingComfirm(true);
     registerMutation.mutate(values);
   };
 
@@ -110,7 +115,7 @@ const RegisterPage = () => {
         </Form.Item>
 
         <Form.Item>
-          <Button type="primary" htmlType="submit" className="w-full">
+          <Button type="primary" htmlType="submit" className="w-full" loading={loadingComfirm}>
             {t("RegisterPage.Register")}
           </Button>
         </Form.Item>
