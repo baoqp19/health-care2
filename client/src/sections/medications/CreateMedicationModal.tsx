@@ -1,7 +1,6 @@
 
 
 import { Button, Col, DatePicker, Flex, Form, Input, message, Modal, Row } from 'antd';
-import React from 'react'
 import { Medication } from '../../stores/medications/medicationStore';
 import { useCreateMedication } from '../../api/medication/create-medication';
 import dayjs from 'dayjs';

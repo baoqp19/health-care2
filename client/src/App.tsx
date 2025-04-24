@@ -1,7 +1,6 @@
 import { ConfigProvider, App as AntApp } from 'antd';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-
 import { GOOGLE_OAUTH_CLIENT_ID } from "./config/env";
 
 import { GoogleOAuthProvider } from "@react-oauth/google";

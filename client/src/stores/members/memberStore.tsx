@@ -57,7 +57,6 @@ interface MembersStore {
 
 // Tạo Zustand store với kiểu dữ liệu `MembersStore`
 export const useMembersStore = create<MembersStore>((set) => ({
-
   member: null,
   isLoading: false,
   error: null,

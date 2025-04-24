@@ -24,17 +24,13 @@ export type UseMembersProps = {
 
 
 export const getMembers = async ({ page, size, keyword }: GetMembersParams): Promise<GetMembersResponse> => {
-  console.log("🔍 API request params:", { page, size, keyword });
-
   try {
     const response = await axios.get(`/members`, {
       params: { page, size, keyword },
     });
 
-    console.log("✅ API response:", response.data);
     return response.data;
   } catch (error) {
-    console.error("❌ Lỗi gọi API:", error);
     throw new Error("Không thể lấy danh sách thành viên.");
   }
 };

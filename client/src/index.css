@@ -941,3 +941,8 @@ canvas {
   /* 100px là tổng chiều cao của header và footer */
 
 }
+
+/* Cấu hình CSS để kiểm tra
+.ant-card-actions {
+  pointer-events: none;
+} */
