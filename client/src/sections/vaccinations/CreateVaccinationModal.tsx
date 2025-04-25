@@ -2,7 +2,7 @@ import { Button, Form, Input, Modal, DatePicker, Row, Col, Select, message } fro
 import { Flex } from "antd";
 import { useEffect } from "react";
 import { useVaccinationsStore, Vaccination } from "../../stores/vaccinations/VaccinationStore";
-import { useMembers } from "../../api/members/get-members";
+import { useMembersByUser } from "../../api/members/get-members";
 import { useCreateVaccination } from "../../api/vaccinations/create-vaccination";
 import dayjs from "dayjs";
 
@@ -19,7 +19,7 @@ const CreateVaccinationModal = ({ open, handleCancel }: PropsCreate) => {
 
   const { openCreateModal, setOpenCreateModal } = useVaccinationsStore();
 
-  const { data: members } = useMembers({});
+  const { data: members } = useMembersByUser();
 
   useEffect(() => {
     if (openCreateModal) {

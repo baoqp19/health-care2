@@ -27,6 +27,7 @@ function App() {
           colorPrimary: '#00A76F',
           colorLinkHover: '#007867',
         },
+        hashed: false,
 
       }}
     >

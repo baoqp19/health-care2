@@ -1,6 +1,6 @@
 import axios from "../../axios/axios-customize"
 import { queryOptions, useQuery } from "@tanstack/react-query";
-import { AppointmentResponse } from "../../type";
+import { AppointmentResponse } from "../../types";
 
 
 

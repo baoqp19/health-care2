@@ -4,22 +4,30 @@ import { ROW_PER_PAGE } from "../../config/constants";
 import { useState } from "react";
 import useVaccinationColumns from "./VaccinationColumn";
 import { useVaccinations } from "../../api/vaccinations/get-vaccination";
+import { useMembersByUser } from "../../api/members/get-members";
 
 
 
-export const VaccinationTable  = () => {
+export const VaccinationTable = () => {
   const columns = useVaccinationColumns();
   const [page, setPage] = useState<number>(1);
   const [keyword, setKeyword] = useState<string>("");
+  const [pageSize, setPageSize] = useState(ROW_PER_PAGE);
+  const [memberID, setMemberId] = useState<number>(0);
 
-  const { data: vaccinations, isLoading } = useVaccinations({ page, size: ROW_PER_PAGE, keyword });
-
+  const { data, isLoading } = useVaccinations({
+    page,
+    size: pageSize,
+    keyword,
+    memberID
+  });
+  const { data: members } = useMembersByUser();
 
   return (
     <>
       <Table
         columns={columns}
-        dataSource={Array.isArray(vaccinations) ? vaccinations : []} // 
+        dataSource={Array.isArray(data?.items) ? data.items : []} // 
         size="middle"
         rowKey={(record) => record.vaccinationID}
         pagination={{

@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { Member } from '../members/memberStore';
+import { Vaccination123 } from '../../types';
 
 
 
@@ -30,14 +31,14 @@ export interface UpdateVaccinationParams {
 
 // Định nghĩa kiểu dữ liệu cho store Zustand
 interface VaccinationStore {
-    vaccination: Vaccination | null;
+    vaccination: Vaccination123 | null;
     isLoading: boolean;
     error: string | null;
     openCreateModal: boolean;
     openUpdateModal: boolean;
     openDeleteModal: boolean;
 
-    setVaccination: (vaccination: Vaccination) => void;
+    setVaccination: (vaccination: Vaccination123) => void;
     setLoading: (isLoading: boolean) => void;
     setError: (error: string | null) => void;
     setOpenCreateModal: (open: boolean) => void;

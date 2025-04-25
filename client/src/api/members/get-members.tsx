@@ -1,7 +1,7 @@
 import { queryOptions, useQuery, UseQueryResult } from "@tanstack/react-query";
 import axios from "../../axios/axios-customize"
 import { Member } from "../../stores/members/memberStore";
-import { MemberAndUser } from "../../type";
+import { MemberAndUser } from "../../types";
 
 
 
@@ -67,3 +67,10 @@ export const useMembersByUser = (): UseQueryResult<MemberAndUser[], Error> => {
     queryFn: getMembersByUser,
   });
 };
+
+
+
+
+
+
+

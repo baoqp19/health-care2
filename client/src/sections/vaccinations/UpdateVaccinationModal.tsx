@@ -2,7 +2,7 @@ import { Button, Form, Input, Modal, Select, DatePicker, Row, Col, message } fro
 import { Flex } from "antd";
 import { useEffect } from "react";
 import { UpdateVaccinationParams, useVaccinationsStore, Vaccination } from "../../stores/vaccinations/VaccinationStore";
-import { useMembers } from "../../api/members/get-members";
+import { useMembersByUser } from "../../api/members/get-members";
 import { useUpdateVaccination } from "../../api/vaccinations/update-vaccination";
 import dayjs from "dayjs";
 
@@ -21,7 +21,7 @@ const UpdateVaccinationModal: React.FC<UpdateVaccinationModalProps> = ({ open, h
 
   console.log(vaccination);
 
-  const { data: members } = useMembers({});
+  const { data: members } = useMembersByUser();
 
   const mutation = useUpdateVaccination({
     onSuccess: () => {

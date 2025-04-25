@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import { useAppointmentsStore } from "../../stores/appointments/appointmentStore";
 import { useDeleteAppointment } from "../../api/appointments/delete-appointment";
 import { ColumnType } from "antd/es/table";
-import { Appointment123 } from "../../type";
+import { Appointment123 } from "../../types";
 
 const useAppointmentColumns = () => {
   const { t } = useTranslation();

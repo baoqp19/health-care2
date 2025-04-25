@@ -6,7 +6,7 @@ import { useAppointmentsStore } from "../../stores/appointments/appointmentStore
 import { useMembers, useMembersByUser } from "../../api/members/get-members";
 import { useCreateAppointment } from "../../api/appointments/create-appointment";
 import { Member } from "../../stores/members/memberStore";
-import { Appointment123 } from "../../type";
+import { Appointment123 } from "../../types";
 
 const { Option } = Select;
 

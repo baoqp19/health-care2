@@ -3,10 +3,11 @@ import { useMemo } from "react";
 import { Button, message, Popconfirm, Space } from "antd";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import moment from "moment";
-import { useVaccinationsStore, Vaccination } from "../../stores/vaccinations/VaccinationStore";
+import { useVaccinationsStore } from "../../stores/vaccinations/VaccinationStore";
 import { useDeleteVaccination } from "../../api/vaccinations/delete-vaccination";
 import { ColumnType } from "antd/es/table";
 import { useTranslation } from "react-i18next";
+import { Vaccination123 } from "../../types";
 
 const useVaccinationColumns = () => {
 
@@ -23,7 +24,7 @@ const useVaccinationColumns = () => {
     },
   });
 
-  const handleEdit = (vaccination: Vaccination) => {
+  const handleEdit = (vaccination: Vaccination123) => {
     setVaccination(vaccination);
     setOpenUpdateModal(true);
   };
@@ -32,7 +33,7 @@ const useVaccinationColumns = () => {
     mutateDelete.mutate(id);
   };
 
-  const columns = useMemo<ColumnType<Vaccination>[]>(
+  const columns = useMemo<ColumnType<Vaccination123>[]>(
     () => [
       {
         title: t("ID"),

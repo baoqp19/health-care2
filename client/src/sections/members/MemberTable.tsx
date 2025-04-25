@@ -24,10 +24,11 @@ export const MemberTable = () => {
         pagination={{
           current: page,
           pageSize: ROW_PER_PAGE,
-          total: 4,   
+          total: 4,
           onChange: (newPage) => setPage(newPage),
         }}
         loading={isLoading}
+        scroll={{ x: "max-content" }}
         title={() => (
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <Input.Search

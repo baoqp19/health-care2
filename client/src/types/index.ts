@@ -1,6 +1,14 @@
 
 // ==========================
 
+export type Meta = {
+    current_page: number;
+    per_page: number;
+    total_pages: number;
+    total_elements: number;
+};
+
+
 
 export type User = {
     id: number;
@@ -36,15 +44,22 @@ export type Appointment123 = {
     location: string;
 };
 
-export type Meta = {
-    current_page: number;
-    per_page: number;
-    total_pages: number;
-    total_elements: number;
-};
-
-
 export type AppointmentResponse = {
     items: Appointment123[];
     meta: Meta;
 };
+
+
+export interface Vaccination123 {
+    vaccinationID: number;
+    member: MemberSummary;
+    vaccineName: string;
+    dateAdministered: string; // ISO date string
+}
+
+export interface GetVaccinationsResponse {
+    items: Vaccination123[];
+    meta: Meta;
+}
+
+

@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { Member } from '../members/memberStore';
-import { Appointment123 } from '../../type';
+import { Appointment123 } from '../../types';
 
 // export interface Appointment {
 //     appointmentID: number
