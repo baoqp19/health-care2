@@ -3,9 +3,10 @@ import { Button, message, Popconfirm, Space } from "antd";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
-import { Appointment, useAppointmentsStore } from "../../stores/appointments/appointmentStore";
+import { useAppointmentsStore } from "../../stores/appointments/appointmentStore";
 import { useDeleteAppointment } from "../../api/appointments/delete-appointment";
 import { ColumnType } from "antd/es/table";
+import { Appointment123 } from "../../type";
 
 const useAppointmentColumns = () => {
   const { t } = useTranslation();
@@ -21,7 +22,7 @@ const useAppointmentColumns = () => {
     },
   });
 
-  const handleEdit = (appointment: Appointment) => {
+  const handleEdit = (appointment: Appointment123) => {
     setAppointment(appointment);
     setOpenUpdateModal(true);
   };
@@ -30,7 +31,7 @@ const useAppointmentColumns = () => {
     mutateDelete.mutate(id);
   };
 
-  const columns = useMemo<ColumnType<Appointment>[]>(
+  const columns = useMemo<ColumnType<Appointment123>[]>(
     () => [
       {
         title: "ID",

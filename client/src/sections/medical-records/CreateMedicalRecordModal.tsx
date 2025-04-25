@@ -3,8 +3,6 @@ import { Flex } from "antd";
 import { MedicalRecord, useMedicalRecordsStore } from "../../stores/medical-records/medicalRecordStore";
 import { useCreateMedicalRecord } from "../../api/medicalRecords/create-medical-records";
 import dayjs from "dayjs";
-import { useMembers } from "../../api/members/get-members";
-import { useMemo } from "react";
 const { Option } = Select;
 
 type PropsCreate = {
@@ -16,18 +14,16 @@ type PropsCreate = {
 const CreateMedicalRecordModal = ({ open, handleCancel }: PropsCreate) => {
   const [form] = Form.useForm();
 
-  const { data: members } = useMembers({})
-  const membersArray = Array.isArray(members) ? members : [];
 
-  const memberOptions = useMemo(() => {
-    return membersArray
-      ? membersArray.map(({ memberID, fullName }) => ({
-        value: memberID,
-        label: `${fullName}`,
-      }))
-      : [];
-  }, [membersArray]);
-
+  // const memberOptions = useMemo(() => {
+  //   return membersArray
+  //     ? membersArray.map(({ memberID, fullName }) => ({
+  //       value: memberID,
+  //       label: `${fullName}`,
+  //     }))
+  //     : [];
+  // }, [membersArray]);
+  const memberOptions: any[] = [];
   const { openCreateModal, setOpenCreateModal } = useMedicalRecordsStore();
 
   const mutation = useCreateMedicalRecord({

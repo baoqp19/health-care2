@@ -55,6 +55,7 @@ const UpdateMemberModal: React.FC<UpdateMemberModalProps> = ({ open, handleCance
 
   return (
     <Modal
+      width={800}
       title="Update employee"
       open={openUpdateModal}
       onCancel={handleCancel}
@@ -77,7 +78,7 @@ const UpdateMemberModal: React.FC<UpdateMemberModalProps> = ({ open, handleCance
             </Form.Item>
           </Col>
           <Col span={12}>
-            <Form.Item 
+            <Form.Item
               label="Date of Birth"
               name="dateOfBirth"
               rules={[{ required: true, message: "Please select date of birth" }]}
@@ -88,7 +89,6 @@ const UpdateMemberModal: React.FC<UpdateMemberModalProps> = ({ open, handleCance
               getValueFromEvent={(date) =>
                 date ? date.format("YYYY-MM-DD") : "" // Chuyển dayjs -> string để lưu cho đúng định dạng
               }
-
             >
               <DatePicker placeholder="Select date of birth..." style={{ width: '100%' }} />
             </Form.Item>

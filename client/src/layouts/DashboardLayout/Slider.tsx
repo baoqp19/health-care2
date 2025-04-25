@@ -32,7 +32,15 @@ const ResponsiveSider = ({ collapsed, setCollapsed }: ResponsiveSiderProps) => {
                     styles={{ header: { display: "none" }, body: { padding: "10px" } }}
                     width={300}
                 >
-                    {/* <img src={logo} onClick={() => navigate('/')} className="w-14 h-14" /> */}
+                    <Space
+                        className="flex flex-col items-center justify-center p-4 cursor-pointer"
+                        onClick={() => {
+                            navigate("/");
+                        }}
+                    >
+                        <img src={logo} className="w-14 h-14" />
+                        <span className="text-xl font-bold text-primary">FamilyHealth</span>
+                    </Space>
                     <MenuCustom
                         mode="inline"
                         isMobile={isMobile}

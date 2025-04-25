@@ -39,6 +39,7 @@ const CreateMemberModal = ({ open, handleCancel }: PropsCreate) => {
 
   return (
     <Modal
+      width={800}
       title={t("MemberPage.CreateMember")}
       open={open}
       onCancel={handleCancel}

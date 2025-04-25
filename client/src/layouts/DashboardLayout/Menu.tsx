@@ -3,7 +3,7 @@ import SimpleBar from "simplebar-react";
 import "simplebar-react/dist/simplebar.min.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useCallback, useMemo } from "react";
-import MenuDashboardConfig from "../../constants/menuDashBoardConfig"
+import MenuDashboardConfig from "./menuDashBoardConfig"
 
 type MenuCustomProps = {
     mode: "inline" | "vertical" | "horizontal";

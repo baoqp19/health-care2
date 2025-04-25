@@ -1,7 +1,7 @@
 import { Button, Layout, Space, Typography } from "antd";
 import { Content, Footer } from "antd/es/layout/layout";
 import logo from "../../assets/logo.png";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { GithubOutlined, TwitterOutlined, FacebookOutlined } from '@ant-design/icons';
 import { useAuthStore } from "../../stores/auth/authStore";
 import LanguageSwitcher from "../../components/languageSwitcher";
@@ -20,7 +20,7 @@ const HomeLayout = () => {
   const { t } = useTranslation();
 
   return (
-    <Layout className="min-h-screen bg-gradient-to-b from-green-50 to-blue-50">
+    <Layout className="min-h-screen bg-gradient-to-b">
       <Header className="flex justify-between items-center bg-white shadow-md px-4 md:px-8">
         <div className="flex items-center">
           <img
@@ -29,7 +29,7 @@ const HomeLayout = () => {
             className="w-12 h-12 transition-transform duration-300 hover:scale-110"
             onClick={() => navigate("/manager")}
           />
-          <span className="text-xs md:text-2xl font-bold ml-2 text-green-600">
+          <span className="text-xs md:text-2xl font-bold ml-2 text-primary">
             FamilyHealth
           </span>
         </div>
@@ -39,7 +39,7 @@ const HomeLayout = () => {
             {isAuthenticated ? (
               <Button
                 type="primary"
-                className="bg-green-500 hover:bg-green-600 transition-colors duration-300"
+                className="transition-colors duration-300"
                 onClick={() => navigate("/manager")}
               >
                 Dashboard
@@ -47,7 +47,7 @@ const HomeLayout = () => {
             ) : (
               <Button
                 type="primary"
-                className="bg-green-500 hover:bg-green-600 transition-colors duration-300"
+                className="transition-colors duration-300"
                 onClick={() => navigate("/auth/login")}
               >
                 {t("LandingPage.Login")}
@@ -62,9 +62,15 @@ const HomeLayout = () => {
       <Footer className="text-center bg-white py-4 md:py-8">
         <div className="mb-4">
           <Space size="large">
-            <GithubOutlined href='https://github.com/baoqp19' className="text-xl md:text-2xl hover:text-blue-500 transition-colors duration-300 cursor-pointer" />
-            <TwitterOutlined href='https://x.com/baodev' className="text-xl md:text-2xl hover:text-blue-500 transition-colors duration-300 cursor-pointer" />
-            <FacebookOutlined href='https://www.facebook.com/pqbao.05' className="text-xl md:text-2xl hover:text-blue-500 transition-colors duration-300 cursor-pointer" />
+            <Link to="https://github.com/hgbaodev">
+              <GithubOutlined className="text-xl md:text-2xl transition-colors duration-300 cursor-pointer" />
+            </Link>
+            <Link to="https://x.com/hgbaodev">
+              <TwitterOutlined className="text-xl md:text-2xl transition-colors duration-300 cursor-pointer" />
+            </Link>
+            <Link to="https://www.facebook.com/fanpage.hgbaodev">
+              <FacebookOutlined className="text-xl md:text-2xl transition-colors duration-300 cursor-pointer" />
+            </Link>
           </Space>
         </div>
         <Typography.Text className="text-gray-600 text-sm md:text-base">

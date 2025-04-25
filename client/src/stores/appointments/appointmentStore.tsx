@@ -1,14 +1,15 @@
 import { create } from 'zustand';
 import { Member } from '../members/memberStore';
+import { Appointment123 } from '../../type';
 
-export interface Appointment {
-    appointmentID: number
-    memberID: number;
-    time: string
-    doctor: string
-    location: string
-    member: Member
-}
+// export interface Appointment {
+//     appointmentID: number
+//     memberID: number;
+//     time: string
+//     doctor: string
+//     location: string
+//     member: Member
+// }
 export interface AppointmentUpdateProps {
     memberID: number
     time: string
@@ -24,14 +25,14 @@ export interface UpdateAppointmentParams {
 
 // Định nghĩa kiểu dữ liệu cho store Zustand
 interface AppointmentsStore {
-    appointment: Appointment | null;
+    appointment: Appointment123 | null;
     isLoading: boolean;
     error: string | null;
     openCreateModal: boolean;
     openUpdateModal: boolean;
     openDeleteModal: boolean;
 
-    setAppointment: (appointment: Appointment) => void;
+    setAppointment: (appointment: Appointment123) => void;
     setLoading: (isLoading: boolean) => void;
     setError: (error: string | null) => void;
     setOpenCreateModal: (open: boolean) => void;

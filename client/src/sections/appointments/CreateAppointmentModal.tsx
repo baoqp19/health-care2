@@ -2,10 +2,11 @@
 import { Button, Form, Input, Modal, DatePicker, Row, Col, Select, message } from "antd";
 import { Flex } from "antd";
 import { useEffect } from "react";
-import { Appointment, useAppointmentsStore } from "../../stores/appointments/appointmentStore";
-import { useMembers } from "../../api/members/get-members";
+import { useAppointmentsStore } from "../../stores/appointments/appointmentStore";
+import { useMembers, useMembersByUser } from "../../api/members/get-members";
 import { useCreateAppointment } from "../../api/appointments/create-appointment";
 import { Member } from "../../stores/members/memberStore";
+import { Appointment123 } from "../../type";
 
 const { Option } = Select;
 
@@ -20,7 +21,7 @@ const CreateAppointmentModal = ({ open, handleCancel }: PropsCreate) => {
 
   const { openCreateModal, setOpenCreateModal } = useAppointmentsStore();
 
-  const { data: members } = useMembers({});
+  const { data: members } = useMembersByUser();
 
   const MembersArray = Array.isArray(members) ? members : [];
 
@@ -40,7 +41,7 @@ const CreateAppointmentModal = ({ open, handleCancel }: PropsCreate) => {
     },
   });
 
-  const onFinish = (values: Appointment) => {
+  const onFinish = (values: Appointment123) => {
     console.log("Received values:", values);
     mutation.mutate(values);
   };

@@ -1,10 +1,9 @@
 import { Button, Form, Input, Modal, Select, Row, DatePicker, Col, message } from "antd";
 import { Flex } from "antd";
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import { MedicalRecord, UpdateMedicalRecordParams, useMedicalRecordsStore } from "../../stores/medical-records/medicalRecordStore";
 import { useUpdateMedicalRecord } from "../../api/medicalRecords/update-medical-records";
 import dayjs from "dayjs";
-import { useMembers } from "../../api/members/get-members";
 
 interface UpdateMedicalRecordModalProps {
   open: boolean;
@@ -19,18 +18,18 @@ const UpdateMedicalRecordModal: React.FC<UpdateMedicalRecordModalProps> = ({ ope
   const [form] = Form.useForm();
   const { openUpdateModal, setOpenUpdateModal, medicalRecord } = useMedicalRecordsStore((state) => state);
 
-  const { data: members } = useMembers({})
 
-  const membersArray = Array.isArray(members) ? members : [];
+  // const memberOptions = useMemo(() => {
+  //   return membersArray
+  //     ? membersArray.map(({ memberID, fullName }) => ({
+  //       value: memberID,
+  //       label: `${fullName}`,
+  //     }))
+  //     : [];
+  // }, [membersArray]);
 
-  const memberOptions = useMemo(() => {
-    return membersArray
-      ? membersArray.map(({ memberID, fullName }) => ({
-        value: memberID,
-        label: `${fullName}`,
-      }))
-      : [];
-  }, [membersArray]);
+
+  const memberOptions: any[] = [];
 
   const mutation = useUpdateMedicalRecord({
     onSuccess: () => {
@@ -62,6 +61,7 @@ const UpdateMedicalRecordModal: React.FC<UpdateMedicalRecordModalProps> = ({ ope
 
   return (
     <Modal
+      width={800}
       title="Update medical record"
       open={openUpdateModal}
       onCancel={handleCancel}

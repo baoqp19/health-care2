@@ -1,0 +1,50 @@
+
+// ==========================
+
+
+export type User = {
+    id: number;
+    firstName: string;
+    lastName: string;
+};
+
+export type MemberAndUser = {
+    memberID: number;
+    user: User;
+    fullName: string;
+    dateOfBirth: string; // hoặc Date nếu bạn parse lúc nhận về
+    gender: "MALE" | "FEMALE" | string;
+    relationship: string;
+    bloodType: "A" | "B" | "AB" | "O" | string;
+    height: number;
+    weight: number;
+};
+
+
+// =======================
+
+export type MemberSummary = {
+    memberID: number;
+    fullName: string;
+};
+
+export type Appointment123 = {
+    appointmentID: number;
+    member: MemberSummary;
+    time: string; // ISO datetime string
+    doctor: string;
+    location: string;
+};
+
+export type Meta = {
+    current_page: number;
+    per_page: number;
+    total_pages: number;
+    total_elements: number;
+};
+
+
+export type AppointmentResponse = {
+    items: Appointment123[];
+    meta: Meta;
+};

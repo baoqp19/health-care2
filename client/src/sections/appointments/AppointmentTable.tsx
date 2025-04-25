@@ -1,5 +1,5 @@
 import { ExportOutlined } from "@ant-design/icons";
-import { Button, Input, Table, Tag } from "antd";
+import { Button, Flex, Input, Space, Table, Tag } from "antd";
 import useAppointmentColumns from "./AppointmentColumn";
 import { ROW_PER_PAGE } from "../../config/constants";
 import { useState } from "react";
@@ -9,10 +9,11 @@ export const AppointmentTable = () => {
   const columns = useAppointmentColumns();
   const [page, setPage] = useState(1);
   const [keyword, setKeyword] = useState("");
+  const [pageSize, setPageSize] = useState(ROW_PER_PAGE);
 
-  const { data: appointments, isLoading } = useAppointments({
+  const { data, isLoading } = useAppointments({
     page,
-    size: ROW_PER_PAGE,
+    size: pageSize,
     keyword,
   });
 
@@ -20,31 +21,39 @@ export const AppointmentTable = () => {
     <>
       <Table
         columns={columns}
-        dataSource={Array.isArray(appointments) ? appointments : []}
+        dataSource={Array.isArray(data?.items) ? data.items : []}
         size="middle"
         rowKey={(record) => record.appointmentID}
         pagination={{
-          current: page,
-          pageSize: ROW_PER_PAGE,
-          total: 4,
+          current: data?.meta.current_page,
+          pageSize: data?.meta?.per_page,
+          total: data?.meta?.total_elements,
+          showSizeChanger: true,
+          pageSizeOptions: ["8", "10", "20", "50", "100"],
+          onShowSizeChange: (current, size) => {
+            setPageSize(size);
+            setPage(1);
+          },
           onChange: (newPage) => setPage(newPage),
         }}
         loading={isLoading}
         title={() => (
-          <div className="flex justify-between">
-            <Input.Search
-              placeholder="Search employee..."
-              className="w-[250px]"
-              allowClear
-              onSearch={(value) => {
-                setKeyword(value);
-                setPage(1);
-              }}
-            />
+          <Flex justify="space-between">
+            <Space size={"middle"}>
+              <Input.Search
+                placeholder="Search employee..."
+                className="w-[250px]"
+                allowClear
+                onSearch={(value) => {
+                  setKeyword(value);
+                  setPage(1);
+                }}
+              />
+            </Space>
             <Button icon={<ExportOutlined />}>
               Export <Tag color="blue">Coming Soon</Tag>
             </Button>
-          </div>
+          </Flex>
         )}
       />
     </>

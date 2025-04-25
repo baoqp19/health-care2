@@ -22,8 +22,10 @@ function App() {
       theme={{
         token: {
           fontFamily: "Inter",
-          borderRadius: 4,
-          controlHeight: 37,
+          borderRadius: 6,
+          controlHeight: 34,
+          colorPrimary: '#00A76F',
+          colorLinkHover: '#007867',
         },
 
       }}

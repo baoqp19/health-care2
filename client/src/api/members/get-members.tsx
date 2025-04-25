@@ -1,6 +1,7 @@
-import { queryOptions, useQuery } from "@tanstack/react-query";
+import { queryOptions, useQuery, UseQueryResult } from "@tanstack/react-query";
 import axios from "../../axios/axios-customize"
 import { Member } from "../../stores/members/memberStore";
+import { MemberAndUser } from "../../type";
 
 
 
@@ -51,5 +52,18 @@ export const useMembers = ({ queryConfig = {}, page, size, keyword }: UseMembers
   return useQuery({
     ...getMembersQueryOptions({ page, size, keyword }),
     ...queryConfig, // nếu không truyền `queryConfig`, nó sẽ là object rỗng {}
+  });
+};
+
+
+export const getMembersByUser = async () => {
+  const response = await axios.get(`/members/all`);
+  return response.data;
+};
+
+export const useMembersByUser = (): UseQueryResult<MemberAndUser[], Error> => {
+  return useQuery<MemberAndUser[], Error>({
+    queryKey: ["membersByUser"],
+    queryFn: getMembersByUser,
   });
 };
