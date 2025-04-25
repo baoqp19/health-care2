@@ -63,3 +63,17 @@ export interface GetVaccinationsResponse {
 }
 
 
+export interface Allergy123 {
+    allergyID: number;
+    member: MemberSummary;
+    allergyType: string;
+    severity: string;
+    symptoms: string;
+}
+
+export interface GetAllergiesResponse {
+    items: Allergy123[];
+    meta: Meta;
+}
+
+

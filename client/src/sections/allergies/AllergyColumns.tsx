@@ -1,10 +1,11 @@
 import { Button, message, Popconfirm, Space } from "antd";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
-import { Allergy, useAllergiesStore } from "../../stores/allergies/allergyStore";
+import { useAllergiesStore } from "../../stores/allergies/allergyStore";
 import { useDeleteAllergy } from "../../api/allergies/delete-allergy";
 import { useMemo } from "react";
 import { ColumnType } from "antd/es/table";
 import { useTranslation } from "react-i18next";
+import { Allergy123 } from "../../types";
 
 const useAllergyColumns = () => {
 
@@ -23,7 +24,7 @@ const useAllergyColumns = () => {
         },
     });
 
-    const handleEdit = (allergy: Allergy) => {
+    const handleEdit = (allergy: Allergy123) => {
         setAllergy(allergy);
         setOpenUpdateModal(true);
     };
@@ -32,7 +33,7 @@ const useAllergyColumns = () => {
         mutateDelete.mutate(id);
     };
 
-    const columns = useMemo<ColumnType<Allergy>[]>(
+    const columns = useMemo<ColumnType<Allergy123>[]>(
         () => [
             {
                 title: t("ID"),
@@ -41,9 +42,10 @@ const useAllergyColumns = () => {
                 align: "center",
             },
             {
-                title: "Member name",
-                dataIndex: "memberName",
+                title: "Member",
                 key: "memberName",
+                align: "center",
+                render: (_, allergy) => allergy.member.fullName,
             },
             {
                 title: t("AllergyPage.AllergyType"),

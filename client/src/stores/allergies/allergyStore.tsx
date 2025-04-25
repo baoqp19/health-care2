@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { Allergy123 } from "../../types";
 
 // Định nghĩa kiểu dữ liệu cho store Zustand
 
@@ -30,14 +31,14 @@ export interface UpdateAllergyProps {
 
 interface MembersStore {
 
-    allergy: Allergy | null;
+    allergy: Allergy123 | null;
     isLoading: boolean;
     error: string | null;
     openCreateModal: boolean;
     openUpdateModal: boolean;
     openDeleteModal: boolean;
 
-    setAllergy: (allergy: Allergy) => void;
+    setAllergy: (allergy: Allergy123) => void;
     setLoading: (isLoading: boolean) => void;
     setError: (error: string | null) => void;
     setOpenCreateModal: (open: boolean) => void;

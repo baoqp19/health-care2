@@ -3,8 +3,8 @@ import { Flex } from "antd";
 import { useEffect, useMemo } from "react";
 import { Allergy, UpdateAllergyProps, useAllergiesStore } from "../../stores/allergies/allergyStore";
 import { useUpdateAllergy } from "../../api/allergies/update-allergy";
-import { useMembers } from "../../api/members/get-members";
-
+import { useMembersByUser } from "../../api/members/get-members";
+const { Option } = Select;
 
 // Định nghĩa kiểu dữ liệu cho props
 interface UpdateAllergyModalProps {
@@ -21,18 +21,7 @@ const UpdateAllergyModal: React.FC<UpdateAllergyModalProps> = ({ open, handleCan
 
   const [form] = Form.useForm();
 
-  const { data: members } = useMembers({});
-
-  const membersArray = Array.isArray(members) ? members : [];
-
-  const memberOptions = useMemo(() => {
-    return membersArray
-      ? membersArray.map(({ memberID, fullName }) => ({
-        value: memberID,
-        label: `${fullName}`,
-      }))
-      : [];
-  }, [membersArray]);
+  const { data: members } = useMembersByUser();
 
 
   const mutation = useUpdateAllergy({
@@ -79,22 +68,18 @@ const UpdateAllergyModal: React.FC<UpdateAllergyModalProps> = ({ open, handleCan
         onFinish={onFinish}
       >
         <Row gutter={16}>
-          <Col span={12}>
+          <Col span={24}>
             <Form.Item
               label="Member"
               name="memberID"
               rules={[{ required: true, message: "Please choose a member" }]}
             >
-              <Select
-                showSearch
-                placeholder="Choose a member..."
-                optionFilterProp="label"
-                options={memberOptions}
-                notFoundContent="Loading members..."
-              />
+              <Select placeholder="Select member...">
+                {members?.map((member) => (<Option key={member.memberID} value={member.memberID}>{member.fullName}</Option>))}
+              </Select>
             </Form.Item>
           </Col>
-          <Col span={12}>
+          <Col span={24}>
             <Form.Item
               label="Allergy type"
               name="allergyType"
@@ -107,7 +92,7 @@ const UpdateAllergyModal: React.FC<UpdateAllergyModalProps> = ({ open, handleCan
           </Col>
         </Row>
         <Row gutter={16}>
-          <Col span={12}>
+          <Col span={24}>
             <Form.Item
               label="Symptoms"
               name="symptoms"
@@ -121,7 +106,7 @@ const UpdateAllergyModal: React.FC<UpdateAllergyModalProps> = ({ open, handleCan
               <Input placeholder="Describe symptoms..." />
             </Form.Item>
           </Col>
-          <Col span={12}>
+          <Col span={24}>
             <Form.Item
               label="Severity"
               name="severity"

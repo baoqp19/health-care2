@@ -3,8 +3,6 @@ import { Member } from '../members/memberStore';
 import { Vaccination123 } from '../../types';
 
 
-
-
 export interface Vaccination {
     vaccinationID: number
     memberID: number;
@@ -20,14 +18,13 @@ export interface VaccinationUpdateProps {
     dateAdministered: string
 }
 
+
+
 // Định nghĩa kiểu dữ liệu cho hàm mutationFn
 export interface UpdateVaccinationParams {
     vaccinationID: number | null;
     data: VaccinationUpdateProps;
 }
-
-
-
 
 // Định nghĩa kiểu dữ liệu cho store Zustand
 interface VaccinationStore {
@@ -55,13 +52,11 @@ export const useVaccinationsStore = create<VaccinationStore>((set) => ({
     openUpdateModal: false,
     openDeleteModal: false,
 
-
     setVaccination: (vaccination) => set({ vaccination }),
     setLoading: (isLoading) => set({ isLoading }),
     setError: (error) => set({ error }),
     setOpenCreateModal: (openCreateModal) => set({ openCreateModal }),
     setOpenUpdateModal: (openUpdateModal) => set({ openUpdateModal }),
     setOpenDeleteModal: (openDeleteModal) => set({ openDeleteModal }),
-
 
 }));

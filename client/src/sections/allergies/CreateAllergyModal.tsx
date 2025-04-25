@@ -2,7 +2,7 @@ import { Button, Form, Input, Modal, Select, Row, Col, message } from "antd";
 import { Flex } from "antd";
 import { Allergy, useAllergiesStore } from "../../stores/allergies/allergyStore";
 import { useCreateAllergy } from "../../api/allergies/create-allergy";
-import { useMembers } from "../../api/members/get-members";
+import { useMembers, useMembersByUser } from "../../api/members/get-members";
 import { useMemo } from "react";
 
 const { Option } = Select;
@@ -15,23 +15,11 @@ type PropsCreate = {
 
 const CreateAllergyModal = ({ open, handleCancel }: PropsCreate) => {
 
-    const { data: members } = useMembers({});
+    const { data: members } = useMembersByUser();
 
     const [form] = Form.useForm();
 
     const { openCreateModal, setOpenCreateModal } = useAllergiesStore();
-
-    const membersArray = Array.isArray(members) ? members : [];
-
-    const memberOptions = useMemo(() => {
-        return membersArray
-            ? membersArray.map(({ memberID, fullName }) => ({
-                value: memberID,
-                label: `${fullName}`,
-            }))
-            : [];
-    }, [membersArray]);
-
 
 
     const mutation = useCreateAllergy({
@@ -52,6 +40,7 @@ const CreateAllergyModal = ({ open, handleCancel }: PropsCreate) => {
 
     return (
         <Modal
+            width={800}
             title="Add allergy"
             open={open}
             onCancel={() => setOpenCreateModal(false)}
@@ -59,7 +48,7 @@ const CreateAllergyModal = ({ open, handleCancel }: PropsCreate) => {
         >
             <Form form={form} onFinish={onFinish} className="pt-4" layout="vertical" variant="filled">
                 <Row gutter={16}>
-                    <Col span={12}>
+                    <Col span={24}>
                         <Form.Item
                             label="Allergy type"
                             name="allergyType"
@@ -68,7 +57,7 @@ const CreateAllergyModal = ({ open, handleCancel }: PropsCreate) => {
                             <Input placeholder="Enter allergy type..." />
                         </Form.Item>
                     </Col>
-                    <Col span={12}>
+                    <Col span={24}>
                         <Form.Item
                             label="Severity"
                             name="severity"
@@ -79,7 +68,7 @@ const CreateAllergyModal = ({ open, handleCancel }: PropsCreate) => {
                     </Col>
                 </Row>
                 <Row gutter={16}>
-                    <Col span={12}>
+                    <Col span={24}>
                         <Form.Item
                             label="Symptoms"
                             name="symptoms"
@@ -88,19 +77,15 @@ const CreateAllergyModal = ({ open, handleCancel }: PropsCreate) => {
                             <Input placeholder="Describe symptoms..." />
                         </Form.Item>
                     </Col>
-                    <Col span={12}>
+                    <Col span={24}>
                         <Form.Item
                             label="Member"
                             name="memberID"
                             rules={[{ required: true, message: "Please choose a member" }]}
                         >
-                            <Select
-                                showSearch
-                                placeholder="Choose a member..."
-                                optionFilterProp="label"
-                                options={memberOptions}
-                                notFoundContent="Loading members..."
-                            />
+                            <Select placeholder="Select member...">
+                                {members?.map((member) => (<Option key={member.memberID} value={member.memberID}>{member.fullName}</Option>))}
+                            </Select>
                         </Form.Item>
                     </Col>
                 </Row>
