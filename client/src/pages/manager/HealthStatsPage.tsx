@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import { PlusSquareOutlined } from "@ant-design/icons";
-import { Button, Flex, Space } from "antd";
+import { Button, Flex, Select, Space } from "antd";
 import { useHealthStatsStore } from '../../stores/health-stats/healthStatStore';
 import ConfirmModal from '../../components/modals/ConfirmModal';
 import PageHeader from '../../components/page-header';
-import MemberSelect from '../../sections/health-stats/MemberTable';
 import BloodPressureContainer from '../../sections/health-stats/BloodPressureContainer';
 import BloodGlucoseContainer from '../../sections/health-stats/BloodGlucoseContainer';
 import HeartRateContainer from '../../sections/health-stats/HeartRateContainer';
 import CreateHealthStatModal from '../../sections/health-stats/CreateHealthStatModal';
 import UpdateHealthStatModal from '../../sections/health-stats/UpdateHealthStatModal';
-
+import { useMembersByUser } from '../../api/members/get-members';
+const { Option } = Select;
 const HealthStatsPage = () => {
   // const { t } = useTranslation();
   const {
@@ -34,6 +34,8 @@ const HealthStatsPage = () => {
   const handleCreateCancel = () => setOpenCreateModal(false);
   const handleUpdateCancel = () => setOpenUpdateModal(false);
 
+  const { data: members } = useMembersByUser();
+
   return (
     <>
       <Flex align="center" justify="space-between" className="mb-2">
@@ -41,11 +43,23 @@ const HealthStatsPage = () => {
           heading={"Health Stats"}
           links={[
             { title: "Dashboard", href: "/manager" },
-            { title: "Health Stats" }
+            { title: "Health Stats" },
           ]}
         />
         <Space>
-          <MemberSelect onChange={handleMemberChange} />
+          <Select
+            className="w-[250px]"
+            placeholder="Select member..."
+            value={selectedMemberId}
+            onChange={handleMemberChange}
+          >
+            <Option value="">All Members</Option>
+            {members?.map((member) => (
+              <Option key={member.memberID} value={member.memberID}>
+                {member.fullName}
+              </Option>
+            ))}
+          </Select>
           <Button
             onClick={handleCreate} // Đảm bảo rằng hàm này được gọi khi nhấn nút
             type="primary"
