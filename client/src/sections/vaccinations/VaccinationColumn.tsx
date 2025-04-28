@@ -37,8 +37,8 @@ const useVaccinationColumns = () => {
     () => [
       {
         title: t("ID"),
-        dataIndex: "vaccinationID",
-        key: "vaccinationID",
+        dataIndex: "id",
+        key: "id",
         align: "center",
       },
       {
@@ -72,7 +72,7 @@ const useVaccinationColumns = () => {
             <Popconfirm
               title="Delete the vaccination"
               description="Are you sure to delete this vaccination?"
-              onConfirm={() => handleDelete(vaccination.vaccinationID)}
+              onConfirm={() => handleDelete(vaccination.id)}
               okText="Yes"
               cancelText="No"
             >

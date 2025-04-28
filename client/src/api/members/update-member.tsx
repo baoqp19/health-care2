@@ -6,8 +6,8 @@ import { ROW_PER_PAGE } from '../../config/constants';
 import { Member, UpdateMemberParams } from '../../stores/members/memberStore';
 
 
-export const updateMember = async ({ memberID, data }: UpdateMemberParams): Promise<Member> => {
-    const response: AxiosResponse<Member> = await axios.put(`/members/${memberID}`, data);
+export const updateMember = async ({ memberId, data }: UpdateMemberParams): Promise<Member> => {
+    const response: AxiosResponse<Member> = await axios.put(`/members/${memberId}`, data);
     return response.data;
 };
 

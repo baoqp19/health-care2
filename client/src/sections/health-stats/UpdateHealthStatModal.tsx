@@ -49,9 +49,9 @@ const UpdateHealthStatModal = ({ open, handleCancel }: PropsCreate) => {
       statType: selectedStatType,
     };
     console.log(formattedValues)
-    if (typeof healthStat?.statID === "number") {
+    if (typeof healthStat?.id === "number") {
       mutation.mutate({
-        statID: healthStat.statID,
+        id: healthStat.id,
         data: formattedValues,
       });
       setOpenUpdateModal(false);

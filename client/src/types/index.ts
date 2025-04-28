@@ -17,7 +17,7 @@ export type User = {
 };
 
 export type MemberAndUser = {
-    memberID: number;
+    id: number;
     user: User;
     fullName: string;
     dateOfBirth: string; // hoặc Date nếu bạn parse lúc nhận về
@@ -32,17 +32,25 @@ export type MemberAndUser = {
 // =======================
 
 export type MemberSummary = {
-    memberID: number;
+    memberId: number;
     fullName: string;
 };
 
 export type Appointment123 = {
-    appointmentID: number;
+    id: number;
     member: MemberSummary;
     time: string; // ISO datetime string
     doctor: string;
     location: string;
 };
+
+
+export interface AppointmentUpdateProps {
+    memberId: number
+    time: string
+    doctor: string
+    location: string
+}
 
 export type AppointmentResponse = {
     items: Appointment123[];
@@ -51,7 +59,7 @@ export type AppointmentResponse = {
 
 
 export interface Vaccination123 {
-    vaccinationID: number;
+    id: number;
     member: MemberSummary;
     vaccineName: string;
     dateAdministered: string; // ISO date string
@@ -64,7 +72,7 @@ export interface GetVaccinationsResponse {
 
 
 export interface Allergy123 {
-    allergyID: number;
+    id: number;
     member: MemberSummary;
     allergyType: string;
     severity: string;

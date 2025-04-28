@@ -5,7 +5,7 @@ import { Vaccination123 } from '../../types';
 
 export interface Vaccination {
     vaccinationID: number
-    memberID: number;
+    memberId: number;
     member: Member;
     vaccineName: string
     dateAdministered: string
@@ -13,7 +13,7 @@ export interface Vaccination {
 
 
 export interface VaccinationUpdateProps {
-    memberID: number
+    memberId: number
     vaccineName: string
     dateAdministered: string
 }

@@ -4,8 +4,8 @@ import { Allergy123 } from "../../types";
 // Định nghĩa kiểu dữ liệu cho store Zustand
 
 export interface Allergy {
-    allergyID: number;
-    memberID: number;
+    id: number;
+    memberId: number;
     allergyType: string,
     severity: string,
     symptoms: string,
@@ -13,7 +13,7 @@ export interface Allergy {
 
 
 export interface AllergyUpdateProps {
-    memberID: number;
+    memberId: number;
     allergyType: string,
     severity: string,
     symptoms: string,
@@ -23,7 +23,7 @@ export interface AllergyUpdateProps {
 
 // Định nghĩa kiểu dữ liệu cho hàm mutationFn
 export interface UpdateAllergyProps {
-    allergyID: number | null;
+    id: number | null;
     data: AllergyUpdateProps;
 }
 

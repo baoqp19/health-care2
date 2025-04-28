@@ -6,7 +6,7 @@ import { useAppointmentsStore } from "../../stores/appointments/appointmentStore
 import { useMembers, useMembersByUser } from "../../api/members/get-members";
 import { useCreateAppointment } from "../../api/appointments/create-appointment";
 import { Member } from "../../stores/members/memberStore";
-import { Appointment123 } from "../../types";
+import { Appointment123, MemberAndUser } from "../../types";
 
 const { Option } = Select;
 
@@ -64,11 +64,11 @@ const CreateAppointmentModal = ({ open, handleCancel }: PropsCreate) => {
           <Col span={24}>
             <Form.Item
               label="Member"
-              name="memberID"
+              name="memberId"
               rules={[{ required: true, message: "Please select member" }]}
             >
               <Select placeholder="Select member...">
-                {MembersArray?.map((member: Member) => (<Option key={member.memberID} value={member.memberID}>{member.fullName}</Option>))}
+                {MembersArray?.map((member: MemberAndUser) => (<Option key={member.id} value={member.id}>{member.fullName}</Option>))}
               </Select>
             </Form.Item>
           </Col>

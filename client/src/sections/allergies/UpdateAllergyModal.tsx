@@ -34,9 +34,9 @@ const UpdateAllergyModal: React.FC<UpdateAllergyModalProps> = ({ open, handleCan
   });
 
   const onFinish = (values: Allergy) => {
-    if (typeof allergy?.allergyID === "number") {
+    if (typeof allergy?.id === "number") {
       mutation.mutate({
-        allergyID: allergy.allergyID,
+        id: allergy.id,
         data: values,
       });
 
@@ -71,11 +71,11 @@ const UpdateAllergyModal: React.FC<UpdateAllergyModalProps> = ({ open, handleCan
           <Col span={24}>
             <Form.Item
               label="Member"
-              name="memberID"
+              name="memberId"
               rules={[{ required: true, message: "Please choose a member" }]}
             >
               <Select placeholder="Select member...">
-                {members?.map((member) => (<Option key={member.memberID} value={member.memberID}>{member.fullName}</Option>))}
+                {members?.map((member) => (<Option key={member.id} value={member.id}>{member.fullName}</Option>))}
               </Select>
             </Form.Item>
           </Col>

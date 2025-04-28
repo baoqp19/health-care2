@@ -23,7 +23,7 @@ export const AppointmentTable = () => {
         columns={columns}
         dataSource={Array.isArray(data?.items) ? data.items : []}
         size="middle"
-        rowKey={(record) => record.appointmentID}
+        rowKey={(record) => record.id}
         pagination={{
           current: data?.meta.current_page,
           pageSize: data?.meta?.per_page,

@@ -5,7 +5,7 @@ import { create } from 'zustand';
 // Định nghĩa kiểu dữ liệu cho `Member`
 
 export interface Member {
-  memberID: number
+  id: number
   fullName: string;
   dateOfBirth: string;
   gender: string;
@@ -28,7 +28,7 @@ export interface MemberUpdateProps {
 
 // Định nghĩa kiểu dữ liệu cho hàm mutationFn
 export interface UpdateMemberParams {
-  memberID: number | null;
+  memberId: number | null;
   data: MemberUpdateProps;
 }
 

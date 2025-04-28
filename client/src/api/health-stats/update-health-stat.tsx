@@ -6,12 +6,12 @@ import { HealthStat, UpdateHealthStatParams } from "../../stores/health-stats/he
 import { getMembersQueryOptions } from "../members/get-members";
 
 
-export const updateHealthStat = async ({ statID, data }: UpdateHealthStatParams): Promise<HealthStat> => {
-  const response: AxiosResponse<HealthStat> = await axios.put(`/health-stats/${statID}`, data);
+export const updateHealthStat = async ({ id, data }: UpdateHealthStatParams): Promise<HealthStat> => {
+  const response: AxiosResponse<HealthStat> = await axios.put(`/health-stats/${id}`, data);
   return response.data;
 };
 
-export const useUpdateHealthStat  = (options?: UseMutationOptions<HealthStat, Error, UpdateHealthStatParams>) => {
+export const useUpdateHealthStat = (options?: UseMutationOptions<HealthStat, Error, UpdateHealthStatParams>) => {
   const { onSuccess, onError, ...restConfig } = options || {};
   const queryClient = useQueryClient();
 

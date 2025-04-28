@@ -35,8 +35,8 @@ const useAppointmentColumns = () => {
     () => [
       {
         title: "ID",
-        dataIndex: "appointmentID",
-        key: "appointmentID",
+        dataIndex: "id",
+        key: "id",
         align: "center",
       },
       {
@@ -76,7 +76,7 @@ const useAppointmentColumns = () => {
             <Popconfirm
               title="Delete the appointment"
               description="Are you sure to delete this appointment?"
-              onConfirm={() => handleDelete(appointment.appointmentID)}
+              onConfirm={() => handleDelete(appointment.id)}
               okText="Yes"
               cancelText="No"
             >

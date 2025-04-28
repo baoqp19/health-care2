@@ -2,9 +2,10 @@ import { Button, Form, Input, Modal, Select, DatePicker, Row, Col, message } fro
 import { Flex } from "antd";
 import { useEffect } from "react";
 import moment from "moment";
-import { Appointment, UpdateAppointmentParams, useAppointmentsStore } from "../../stores/appointments/appointmentStore";
+import { UpdateAppointmentParams, useAppointmentsStore } from "../../stores/appointments/appointmentStore";
 import { useMembers } from "../../api/members/get-members";
 import { useUpdateAppointment } from "../../api/appointments/update-appointment";
+import { Appointment123 } from "../../types";
 
 const { Option } = Select;
 
@@ -36,9 +37,9 @@ const UpdateAppointmentModal: React.FC<UpdateAppointmemtModalProps> = ({ open, h
     },
   });
 
-  const onFinish = (values: Appointment) => {
-    if (typeof appointment?.appointmentID === "number") {
-      mutation.mutate({ appointmentID: appointment.appointmentID, data: values });
+  const onFinish = (values: Appointment123) => {
+    if (typeof appointment?.id === "number") {
+      mutation.mutate({ id: appointment.id, data: values });
     };
   }
   useEffect(() => {
@@ -47,7 +48,7 @@ const UpdateAppointmentModal: React.FC<UpdateAppointmemtModalProps> = ({ open, h
       form.setFieldsValue({
         ...appointment,
         time: appointment.time ? moment(appointment.time) : null,
-        memberID: appointment.member.memberID,
+        memberID: appointment.member.memberId,
       });
     }
   }, [appointment, form]);

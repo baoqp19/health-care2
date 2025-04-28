@@ -29,7 +29,7 @@ export const VaccinationTable = () => {
         columns={columns}
         dataSource={Array.isArray(data?.items) ? data.items : []} // 
         size="middle"
-        rowKey={(record) => record.vaccinationID}
+        rowKey={(record) => record.id}
         pagination={{
           current: page,
           pageSize: ROW_PER_PAGE,

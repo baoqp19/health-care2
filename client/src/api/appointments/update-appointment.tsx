@@ -3,20 +3,21 @@ import axios from "../../axios/axios-customize"
 import { useMutation, UseMutationOptions, useQueryClient } from "@tanstack/react-query";
 import { ROW_PER_PAGE } from "../../config/constants";
 import { getAppointmentsQueryOptions } from "./get-appointment";
-import { Appointment, UpdateAppointmentParams } from "../../stores/appointments/appointmentStore";
+import { UpdateAppointmentParams } from "../../stores/appointments/appointmentStore";
+import { Appointment123 } from "../../types";
 
-export const updateApppointment = async ({ appointmentID, data }: UpdateAppointmentParams): Promise<Appointment> => {
-    const response: AxiosResponse<Appointment> = await axios.put(`/appointments/${appointmentID}`, data);
+export const updateApppointment = async ({ id, data }: UpdateAppointmentParams): Promise<Appointment123> => {
+    const response: AxiosResponse<Appointment123> = await axios.put(`/appointments/${id}`, data);
     console.log(response.data)
     return response.data;
 
 };
 
-export const useUpdateAppointment = (options?: UseMutationOptions<Appointment, Error, UpdateAppointmentParams>) => {
+export const useUpdateAppointment = (options?: UseMutationOptions<Appointment123, Error, UpdateAppointmentParams>) => {
     const { onSuccess, onError, ...restConfig } = options || {};
     const queryClient = useQueryClient();
 
-    return useMutation<Appointment, Error, UpdateAppointmentParams>({
+    return useMutation<Appointment123, Error, UpdateAppointmentParams>({
         mutationFn: updateApppointment,
         onSuccess: (data, ...args) => {
             queryClient.invalidateQueries({

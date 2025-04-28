@@ -67,7 +67,7 @@ const CreateVaccinationModal = ({ open, handleCancel }: PropsCreate) => {
               <Select placeholder="Select member...">
                 {Array.isArray(members) &&
                   members.map((member) => (
-                    <Option key={member?.memberID} value={member?.memberID}>
+                    <Option key={member?.id} value={member?.id}>
                       {member?.fullName || "Không có tên"}
                     </Option>
                   ))}

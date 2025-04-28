@@ -33,7 +33,7 @@ const CreateHealthStatModal = ({ open, handleCancel, selectedMemberId }: PropsCr
     const formattedValues = {
       ...values,
       statType: selectedStatType,
-      memberID: selectedMemberId,
+      memberId: selectedMemberId,
     }
 
     console.log(formattedValues)
@@ -126,7 +126,7 @@ const CreateHealthStatModal = ({ open, handleCancel, selectedMemberId }: PropsCr
                 value: value ? dayjs(value, "YYYY-MM-DD") : null, // Chuyển string -> dayjs để hiển thị đúng trong form 
               })}
               getValueFromEvent={(date) =>
-                date ? date.format("YYYY-MM-DD") : "" // Chuyển dayjs -> string để lưu cho đúng định dạng
+                date ? date.format("YYYY-MM-DD") : ""
               }
             >
               <DatePicker

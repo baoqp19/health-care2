@@ -9,8 +9,8 @@ import { Allergy, UpdateAllergyProps } from '../../stores/allergies/allergyStore
 
 
 
-export const updateAllergy = async ({ allergyID, data }: UpdateAllergyProps): Promise<Allergy> => {
-    const response: AxiosResponse<Allergy> = await axios.put(`/allergies/${allergyID}`, data);
+export const updateAllergy = async ({ id, data }: UpdateAllergyProps): Promise<Allergy> => {
+    const response: AxiosResponse<Allergy> = await axios.put(`/allergies/${id}`, data);
     console.log(response.data)
     return response.data;
 };

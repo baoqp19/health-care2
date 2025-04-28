@@ -34,9 +34,9 @@ const UpdateVaccinationModal: React.FC<UpdateVaccinationModalProps> = ({ open, h
   });
 
   const onFinish = (values: Vaccination) => {
-    if (typeof vaccination?.vaccinationID === "number") {
+    if (typeof vaccination?.id === "number") {
       mutation.mutate({
-        vaccinationID: vaccination.vaccinationID,
+        vaccinationID: vaccination.id,
         data: values,
       });
       setOpenUpdateModal(false);
@@ -78,7 +78,7 @@ const UpdateVaccinationModal: React.FC<UpdateVaccinationModalProps> = ({ open, h
               <Select placeholder="Select member...">
                 {Array.isArray(members) &&
                   members.map((member) => (
-                    <Option key={member?.memberID} value={member?.memberID}>
+                    <Option key={member?.id} value={member?.id}>
                       {member?.fullName || "Không có tên"}
                     </Option>
                   ))}

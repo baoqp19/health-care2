@@ -1,17 +1,9 @@
 import { create } from 'zustand';
-import { Member } from '../members/memberStore';
 import { Appointment123 } from '../../types';
 
-// export interface Appointment {
-//     appointmentID: number
-//     memberID: number;
-//     time: string
-//     doctor: string
-//     location: string
-//     member: Member
-// }
+
 export interface AppointmentUpdateProps {
-    memberID: number
+    memberId: number
     time: string
     doctor: string
     location: string
@@ -19,8 +11,8 @@ export interface AppointmentUpdateProps {
 
 // Định nghĩa kiểu dữ liệu cho hàm mutationFn
 export interface UpdateAppointmentParams {
-    appointmentID: number | null;
-    data: AppointmentUpdateProps;
+    id: number | null;
+    data: Appointment123;
 }
 
 // Định nghĩa kiểu dữ liệu cho store Zustand

@@ -5,7 +5,7 @@ import { create } from 'zustand';
 
 export interface MedicalRecord {
     recordID: number
-    memberID: number
+    memberId: number
     date: string
     doctor: string
     symptoms: string
@@ -16,7 +16,7 @@ export interface MedicalRecord {
 
 
 export interface MedicalRecordUpdateProps {
-    memberID: number
+    memberId: number
     date: string
     doctor: string
     symptoms: string

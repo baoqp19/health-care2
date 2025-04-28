@@ -1,23 +1,23 @@
 import { create } from "zustand";
 
 export interface HealthStat {
-    statID: number,
-    statType: string,
-    statValue: string
-    date: string
-    memberID: number
+    id: number,
+    memberId: number;
+    statType: string;
+    statValue: number;
+    date: string;
 }
 
 
 export interface HealthStatUpdateProps {
-    statType: string,
-    statValue: string,
-    date: string,
-    memberID: number
+    memberId: number;
+    statType: string;
+    statValue: number;
+    date: string;
 }
 
 export interface UpdateHealthStatParams {
-    statID: number | null;
+    id: number | null;
     data: HealthStatUpdateProps;
 }
 

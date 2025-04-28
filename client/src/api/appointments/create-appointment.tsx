@@ -1,13 +1,13 @@
 import { AxiosResponse } from "axios";
 import axios from "../../axios/axios-customize"
-import { Appointment } from "../../stores/appointments/appointmentStore";
 import { useMutation, UseMutationOptions, useQueryClient } from "@tanstack/react-query";
 import { getAppointmentsQueryOptions } from "./get-appointment";
 import { ROW_PER_PAGE } from "../../config/constants";
+import { Appointment123 } from "../../types";
 
-export const createAppointment = async (appointment: Appointment): Promise<Appointment> => {
+export const createAppointment = async (appointment: Appointment123): Promise<Appointment123> => {
     try {
-        const response: AxiosResponse<Appointment> = await axios.post("/appointments", appointment);
+        const response: AxiosResponse<Appointment123> = await axios.post("/appointments", appointment);
         console.log("Created Appointment:", response.data);
         return response.data;
     } catch (error) {
@@ -17,7 +17,7 @@ export const createAppointment = async (appointment: Appointment): Promise<Appoi
 };
 
 export const useCreateAppointment = (
-    options: UseMutationOptions<Appointment, Error, Appointment> = {}
+    options: UseMutationOptions<Appointment123, Error, Appointment123> = {}
 ) => {
     const { onSuccess, onError, ...restConfig } = options;
 

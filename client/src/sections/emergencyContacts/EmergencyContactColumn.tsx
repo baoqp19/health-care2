@@ -35,8 +35,8 @@ const useEmergencyContactColumns = () => {
 
       {
         title: t("ID"),
-        dataIndex: "contactID",
-        key: "contactID",
+        dataIndex: "id",
+        key: "id",
         align: "center",
       },
 
