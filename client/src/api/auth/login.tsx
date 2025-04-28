@@ -54,7 +54,6 @@ export const useLogin = (options: UseLoginOptions = {}) => {
     });
 };
 
-// // ✅ Kiểu dữ liệu chuẩn
 export type GoogleLoginRequest = {
     credential?: string;
     select_by?: string;
@@ -74,7 +73,6 @@ type MutationConfig = {
     onError?: (error: any) => void;
 }
 
-// Cập nhật hàm `useGoogleLogin` để nhận `GoogleLoginData`
 export const googleLogin = async ({ data }: GoogleLoginData): Promise<GoogleLoginResponse> => {
     const response: AxiosResponse<GoogleLoginResponse> = await axios.post<GoogleLoginResponse>(`/oauth2/google`, data);
     return response.data;

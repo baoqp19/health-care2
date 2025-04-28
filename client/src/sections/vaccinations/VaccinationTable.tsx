@@ -1,25 +1,25 @@
 import { ExportOutlined } from "@ant-design/icons";
-import { Button, Flex, Input, Table, Tag } from "antd";
+import { Button, Flex, Input, Select, Space, Table, Tag } from "antd";
 import { ROW_PER_PAGE } from "../../config/constants";
 import { useState } from "react";
 import useVaccinationColumns from "./VaccinationColumn";
 import { useVaccinations } from "../../api/vaccinations/get-vaccination";
 import { useMembersByUser } from "../../api/members/get-members";
 
-
+const { Option } = Select;
 
 export const VaccinationTable = () => {
   const columns = useVaccinationColumns();
   const [page, setPage] = useState<number>(1);
   const [keyword, setKeyword] = useState<string>("");
   const [pageSize, setPageSize] = useState(ROW_PER_PAGE);
-  const [memberID, setMemberId] = useState<number>(0);
+  const [memberId, setMemberId] = useState<number>(0);
 
   const { data, isLoading } = useVaccinations({
     page,
     size: pageSize,
     keyword,
-    memberID
+    memberId
   });
   const { data: members } = useMembersByUser();
 
@@ -27,32 +27,44 @@ export const VaccinationTable = () => {
     <>
       <Table
         columns={columns}
-        dataSource={Array.isArray(data?.items) ? data.items : []} // 
-        size="middle"
+        dataSource={data?.items || []}
+        size="small"
         rowKey={(record) => record.id}
         pagination={{
-          current: page,
-          pageSize: ROW_PER_PAGE,
-          total: 4,
-
+          current: data?.meta?.current_page,
+          pageSize: data?.meta?.per_page,
+          total: data?.meta?.total_elements,
+          showSizeChanger: true,
+          pageSizeOptions: ["8", "10", "20", "50", "100"],
+          onShowSizeChange: (current, size) => {
+            setPageSize(size);
+            setPage(1);
+          },
           onChange: (newPage) => setPage(newPage),
         }}
         loading={isLoading}
+        scroll={{ x: "max-content" }}
         title={() => (
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <Input.Search
-              placeholder="Search employee..."
-              className="w-[250px]"
-              allowClear
-              onSearch={(value) => {
-                setKeyword(value);
-                setPage(1);
-              }}
-            />
+          <Flex justify="space-between">
+            <Space>
+              <Input.Search
+                placeholder="Search employee..."
+                className="w-[250px]"
+                allowClear
+                onSearch={(value) => {
+                  setKeyword(value);
+                  setPage(1);
+                }}
+              />
+              <Select className="w-[250px]" placeholder="Select member..." value={memberId} onChange={(e) => setMemberId(e)}>
+                <Option value="">All Members</Option>
+                {members?.map((member) => (<Option key={member.id} value={member.id}>{member.fullName}</Option>))}
+              </Select>
+            </Space>
             <Button icon={<ExportOutlined />}>
-              Export<Tag color="blue">Coming Soon</Tag>
+              Export <Tag color="blue">Coming Soon</Tag>
             </Button>
-          </div>
+          </Flex>
         )}
       />
     </>

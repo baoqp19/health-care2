@@ -4,7 +4,7 @@ import { Vaccination123 } from '../../types';
 
 
 export interface Vaccination {
-    vaccinationID: number
+    id: number
     memberId: number;
     member: Member;
     vaccineName: string
@@ -22,7 +22,7 @@ export interface VaccinationUpdateProps {
 
 // Định nghĩa kiểu dữ liệu cho hàm mutationFn
 export interface UpdateVaccinationParams {
-    vaccinationID: number | null;
+    id: number | null;
     data: VaccinationUpdateProps;
 }
 

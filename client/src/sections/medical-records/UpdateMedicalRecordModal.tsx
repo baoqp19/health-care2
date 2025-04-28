@@ -19,16 +19,6 @@ const UpdateMedicalRecordModal: React.FC<UpdateMedicalRecordModalProps> = ({ ope
   const { openUpdateModal, setOpenUpdateModal, medicalRecord } = useMedicalRecordsStore((state) => state);
 
 
-  // const memberOptions = useMemo(() => {
-  //   return membersArray
-  //     ? membersArray.map(({ memberID, fullName }) => ({
-  //       value: memberID,
-  //       label: `${fullName}`,
-  //     }))
-  //     : [];
-  // }, [membersArray]);
-
-
   const memberOptions: any[] = [];
 
   const mutation = useUpdateMedicalRecord({
@@ -72,7 +62,7 @@ const UpdateMedicalRecordModal: React.FC<UpdateMedicalRecordModalProps> = ({ ope
           <Col span={12}>
             <Form.Item
               label="Member "
-              name="memberID"
+              name="memberId"
               rules={[{ required: true, message: "Please choose a member " }]}
             >
               <Select

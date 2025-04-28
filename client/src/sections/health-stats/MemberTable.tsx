@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { useMembersSelect } from '../../api/health-stats/get-members-select';
 
 type MemberSelectProps = {
-  onChange: (memberID: number) => void;
+  onChange: (memberId: number) => void;
 };
 
 const MemberSelect = ({ onChange }: MemberSelectProps) => {
@@ -15,7 +15,7 @@ const MemberSelect = ({ onChange }: MemberSelectProps) => {
   useEffect(() => {
     // Chỉ gọi onChange với thành viên đầu tiên khi trang mới load
     if (isFirstLoad.current && members && members.length > 0) {
-      onChange(members[0].memberID);
+      onChange(members[0].id);
       isFirstLoad.current = false; // Đặt lại cờ sau lần gọi đầu tiên
     }
   }, [members, onChange]);
@@ -30,7 +30,7 @@ const MemberSelect = ({ onChange }: MemberSelectProps) => {
       style={{ height: 37, borderRadius: 5 }}
     >
       {membersArray?.map((member) => (
-        <option key={member.memberID} value={member.memberID}>
+        <option key={member.id} value={member.id}>
           {member.fullName}
         </option>
       ))}

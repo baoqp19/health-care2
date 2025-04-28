@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "../../axios/axios-customize"
+import { MemberAndUserSelecter } from "../../types";
 
 export const getMembersSelect = async () => {
     const response = await axios.get(`/health-stats/membersSelect`);
@@ -7,7 +8,7 @@ export const getMembersSelect = async () => {
 };
 
 export const useMembersSelect = () => {
-    return useQuery({
+    return useQuery<MemberAndUserSelecter[], Error>({
         queryKey: ['membersSelect'],
         queryFn: getMembersSelect,
         // staleTime: 1000 * 60 * 5, // Optional: cache for 5 minutes

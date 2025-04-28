@@ -18,22 +18,6 @@ export const MedicalRecordTable = () => {
 
   const MedicalRecords = Array.isArray(medicalRecords) ? medicalRecords : []
 
-  // const { data: members } = useMembers({})
-  // const memberMap = Array.isArray(members)
-  //   ?
-  //   members.reduce((map, member) => {
-  //     map[member.memberID] = member.fullName;
-  //     return map;
-  //   }, {})
-  //   : {};
-
-  // const dataSource = Array.isArray(medicalRecords)
-  //   ? medicalRecords.map(medicaReocrd => ({
-  //     ...medicaReocrd,
-  //     memberName: memberMap[medicaReocrd.memberID] || "",
-  //   }))
-  //   : [];
-
 
   return (
     <>

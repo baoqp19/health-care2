@@ -85,3 +85,30 @@ export interface GetAllergiesResponse {
 }
 
 
+
+
+// Định nghĩa kiểu cho User
+interface MemberSeleter {
+    id: number;
+    firstname: string;
+    lastname: string;
+    email: string;
+    password: string;
+    role: string;
+    refreshToken: string;
+    _block: boolean;
+    _verify: boolean;
+}
+
+// Định nghĩa kiểu cho Member
+export interface MemberAndUserSelecter {
+    id: number;
+    user: MemberSeleter;  // Lồng kiểu User vào Member
+    fullName: string;
+    dateOfBirth: string;
+    gender: string;
+    relationship: string;
+    bloodType: string;
+    height: number;
+    weight: number;
+}

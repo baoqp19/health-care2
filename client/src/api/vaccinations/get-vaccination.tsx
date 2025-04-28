@@ -7,7 +7,7 @@ export type GetVaccinationParams = {
     page: number;
     size: number;
     keyword?: string;
-    memberID?: number;
+    memberId?: number;
 }
 
 
@@ -17,13 +17,13 @@ export type UseVaccinationProps = {
 
 
 
-export const getVaccinations = async ({ page, size, keyword, memberID }: GetVaccinationParams): Promise<GetVaccinationsResponse> => {
+export const getVaccinations = async ({ page, size, keyword, memberId }: GetVaccinationParams): Promise<GetVaccinationsResponse> => {
     const response = await axios.get(`/vaccinations`, {
         params: {
             page,
             size,
             keyword,
-            memberID
+            memberId
         },
     });
     return response.data
@@ -34,18 +34,18 @@ export const getVaccinationsQueryOptions = ({
     page,
     size,
     keyword,
-    memberID
+    memberId
 }: GetVaccinationParams) => {
     return queryOptions({
-        queryKey: page ? ["vaccinations", { page, size, keyword, memberID }] : ["vaccinations"], // cache dữ liệu
+        queryKey: page ? ["vaccinations", { page, size, keyword, memberId }] : ["vaccinations"], // cache dữ liệu
         queryFn: () => getVaccinations({ page, size, keyword }), // gọi API 
     });
 
 };
 
-export const useVaccinations = ({ queryConfig = {}, page, size, keyword, memberID }: UseVaccinationProps) => {
+export const useVaccinations = ({ queryConfig = {}, page, size, keyword, memberId }: UseVaccinationProps) => {
     return useQuery({
-        ...getVaccinationsQueryOptions({ page, size, keyword, memberID }),
+        ...getVaccinationsQueryOptions({ page, size, keyword, memberId }),
         ...queryConfig, // nếu không truyền `queryConfig`, nó sẽ là object rỗng {}
     });
 };

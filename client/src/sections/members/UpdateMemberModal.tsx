@@ -34,9 +34,9 @@ const UpdateMemberModal: React.FC<UpdateMemberModalProps> = ({ open, handleCance
 
 
   const onFinish = (values: Member) => {
-    if (typeof member?.memberID === "number") {
+    if (typeof member?.id === "number") {
       mutation.mutate({
-        memberID: member?.memberID,
+        id: member?.id,
         data: values,
       });
       setOpenUpdateModal(false);

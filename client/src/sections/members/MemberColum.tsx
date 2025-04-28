@@ -36,8 +36,8 @@ const useMemberColumns = () => {
         () => [
             {
                 title: t("ID"),
-                dataIndex: "memberID",
-                key: "memberID",
+                dataIndex: "id",
+                key: "id",
                 align: "center",
             },
             {
@@ -88,7 +88,7 @@ const useMemberColumns = () => {
                         <Popconfirm
                             title="Delete the member"
                             description="Are you sure to delete this member?"
-                            onConfirm={() => handleDelete(member.memberID)}
+                            onConfirm={() => handleDelete(member.id)}
                             okText="Yes"
                             cancelText="No"
                         >

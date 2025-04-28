@@ -61,7 +61,7 @@ const CreateVaccinationModal = ({ open, handleCancel }: PropsCreate) => {
           <Col span={24}>
             <Form.Item
               label="Member"
-              name="memberID"
+              name="memberId"
               rules={[{ required: true, message: "Please select member" }]}
             >
               <Select placeholder="Select member...">

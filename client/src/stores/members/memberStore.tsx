@@ -28,7 +28,7 @@ export interface MemberUpdateProps {
 
 // Định nghĩa kiểu dữ liệu cho hàm mutationFn
 export interface UpdateMemberParams {
-  memberId: number | null;
+  id: number | null;
   data: MemberUpdateProps;
 }
 
