@@ -1,6 +1,6 @@
 import { queryOptions, useQuery, UseQueryResult } from "@tanstack/react-query";
 import axios from "../../axios/axios-customize"
-import { Member } from "../../stores/members/memberStore";
+import { Member } from "../../stores/MemberStore";
 import { MemberAndUser } from "../../types";
 
 

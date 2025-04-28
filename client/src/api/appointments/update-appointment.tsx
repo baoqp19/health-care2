@@ -3,7 +3,7 @@ import axios from "../../axios/axios-customize"
 import { useMutation, UseMutationOptions, useQueryClient } from "@tanstack/react-query";
 import { ROW_PER_PAGE } from "../../config/constants";
 import { getAppointmentsQueryOptions } from "./get-appointment";
-import { UpdateAppointmentParams } from "../../stores/appointments/appointmentStore";
+import { UpdateAppointmentParams } from "../../stores/appointmentStore";
 import { Appointment123 } from "../../types";
 
 export const updateApppointment = async ({ id, data }: UpdateAppointmentParams): Promise<Appointment123> => {

@@ -1,7 +1,7 @@
 import { Button, Form, Input, Modal, Row, Col, message } from "antd";
 import { useEffect } from "react";
 import { Flex } from "antd";
-import { Contact, UpdateContactParams, useEmergencyContactStore } from "../../stores/emergencyContacts/emergencyContactStore";
+import { Contact, UpdateContactParams, useEmergencyContactStore } from "../../stores/emergencyContactStore";
 import { useUpdateEmergencyContact } from "../../api/emergencyContacts/update-emergencyContact";
 
 // const { Option } = Select; 

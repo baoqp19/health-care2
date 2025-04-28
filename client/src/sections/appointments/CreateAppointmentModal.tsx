@@ -2,10 +2,10 @@
 import { Button, Form, Input, Modal, DatePicker, Row, Col, Select, message } from "antd";
 import { Flex } from "antd";
 import { useEffect } from "react";
-import { useAppointmentsStore } from "../../stores/appointments/appointmentStore";
+import { useAppointmentsStore } from "../../stores/appointmentStore";
 import { useMembers, useMembersByUser } from "../../api/members/get-members";
 import { useCreateAppointment } from "../../api/appointments/create-appointment";
-import { Member } from "../../stores/members/memberStore";
+import { Member } from "../../stores/MemberStore";
 import { Appointment123, MemberAndUser } from "../../types";
 
 const { Option } = Select;

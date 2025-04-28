@@ -1,7 +1,7 @@
 import { Button, Form, Input, Modal, Select, DatePicker, Row, Col, message } from "antd";
 import { Flex } from "antd";
 import { useEffect } from "react";
-import { UpdateVaccinationParams, useVaccinationsStore, Vaccination } from "../../stores/vaccinations/VaccinationStore";
+import { UpdateVaccinationParams, useVaccinationsStore, Vaccination } from "../../stores/VaccinationStore";
 import { useMembersByUser } from "../../api/members/get-members";
 import { useUpdateVaccination } from "../../api/vaccinations/update-vaccination";
 import dayjs from "dayjs";

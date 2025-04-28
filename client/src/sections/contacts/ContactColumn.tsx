@@ -3,7 +3,7 @@ import { useUpdateSeenStateContact } from "../../api/contacts/update-seen-state-
 import { Button, message, Popconfirm, Space } from "antd";
 import { useMemo } from "react";
 import { CheckCircleOutlined, DeleteOutlined, LockOutlined, UnlockOutlined } from "@ant-design/icons";
-import { Contacts } from "../../stores/contacts/contactStore";
+import { Contacts } from "../../stores/contactStore";
 import { ColumnType } from "antd/es/table";
 
 const useContactColumns = () => {

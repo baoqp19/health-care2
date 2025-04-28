@@ -3,7 +3,7 @@ import { useMemo } from "react";
 import { Button, message, Popconfirm, Space } from "antd";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import moment from "moment";
-import { useVaccinationsStore } from "../../stores/vaccinations/VaccinationStore";
+import { useVaccinationsStore } from "../../stores/VaccinationStore";
 import { useDeleteVaccination } from "../../api/vaccinations/delete-vaccination";
 import { ColumnType } from "antd/es/table";
 import { useTranslation } from "react-i18next";

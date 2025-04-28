@@ -1,4 +1,4 @@
-import { Contact } from "../../stores/emergencyContacts/emergencyContactStore";
+import { Contact } from "../../stores/emergencyContactStore";
 import axios from "../../axios/axios-customize"
 import { queryOptions, useQuery } from "@tanstack/react-query";
 

@@ -1,7 +1,7 @@
 import { Button, Form, Input, Modal, Select, Row, DatePicker, Col, message } from "antd";
 import { Flex } from "antd";
 import { useEffect } from "react";
-import { MedicalRecord, UpdateMedicalRecordParams, useMedicalRecordsStore } from "../../stores/medical-records/medicalRecordStore";
+import { MedicalRecord, UpdateMedicalRecordParams, useMedicalRecordsStore } from "../../stores/medicalRecordStore";
 import { useUpdateMedicalRecord } from "../../api/medicalRecords/update-medical-records";
 import dayjs from "dayjs";
 

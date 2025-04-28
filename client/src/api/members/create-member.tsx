@@ -3,7 +3,7 @@ import { AxiosResponse } from "axios";
 import axios from "../../axios/axios-customize"
 import { getMembersQueryOptions } from "./get-members";
 import { ROW_PER_PAGE } from "../../config/constants";
-import { Member } from "../../stores/members/memberStore";
+import { Member } from "../../stores/MemberStore";
 
 
 export const createMember = async (member: Member): Promise<Member> => {

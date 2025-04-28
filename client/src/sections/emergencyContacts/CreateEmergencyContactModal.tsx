@@ -1,5 +1,5 @@
 import { Button, Form, Input, Modal, message, Row, Col } from "antd";
-import { Contact, useEmergencyContactStore } from "../../stores/emergencyContacts/emergencyContactStore";
+import { Contact, useEmergencyContactStore } from "../../stores/emergencyContactStore";
 import { useCreateEmergenceContact } from "../../api/emergencyContacts/create-emergencyContact";
 
 
@@ -12,7 +12,7 @@ type PropsCreate = {
 
 
 const CreateEmergencyContactModal = ({ open, handleCancel }: PropsCreate) => {
-  
+
   const [form] = Form.useForm();
   const { openCreateModal, setOpenCreateModal } = useEmergencyContactStore();
 

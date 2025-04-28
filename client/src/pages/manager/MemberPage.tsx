@@ -6,7 +6,7 @@ import ConfirmModal from "../../components/modals/ConfirmModal";
 import { MemberTable } from "../../sections/members/MemberTable";
 import CreateMemberModal from "../../sections/members/CreateMemberModal";
 import UpdateMemberModal from "../../sections/members/UpdateMemberModal";
-import { useMembersStore } from "../../stores/members/memberStore";
+import { useMembersStore } from "../../stores/MemberStore";
 import { useTranslation } from "react-i18next";
 
 

@@ -5,7 +5,7 @@ import axios from "../../axios/axios-customize"
 import { AxiosResponse } from 'axios';
 import { useMutation, UseMutationOptions, useQueryClient } from '@tanstack/react-query';
 import { ROW_PER_PAGE } from '../../config/constants';
-import { Contact, UpdateContactParams } from "../../stores/emergencyContacts/emergencyContactStore";
+import { Contact, UpdateContactParams } from "../../stores/emergencyContactStore";
 import { getEmergencyContactsQueryOptions } from "./get-emergencyContact";
 
 

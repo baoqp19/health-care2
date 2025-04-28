@@ -2,7 +2,7 @@ import { queryOptions, useQuery } from "@tanstack/react-query";
 import axios from "../../axios/axios-customize"
 import { GetContactsParams } from "../emergencyContacts/get-emergencyContact";
 import { UseContactProps } from "../contacts/get-contacts";
-import { UserResponse } from "../../stores/users/userStore";
+import { UserResponse } from "../../stores/userStore";
 
 
 export type GetUsersResponse = {

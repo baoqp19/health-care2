@@ -1,13 +1,11 @@
 
 import { create } from 'zustand';
 
-// Định nghĩa kiểu dữ liệu cho tin nhắn
 interface Message {
     sender: 'ai' | 'user';
     text: string;
 }
 
-// Định nghĩa kiểu dữ liệu cho store Zustand
 interface ChatAiStore {
     messages: Message[];
     addMessage: (message: Message) => void;
@@ -21,3 +19,5 @@ export const useChatAiStore = create<ChatAiStore>((set) => ({
         messages: [...state.messages, message],
     })),
 }));
+
+

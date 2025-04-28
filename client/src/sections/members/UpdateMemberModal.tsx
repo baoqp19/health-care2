@@ -2,7 +2,7 @@ import { Button, Col, DatePicker, Flex, Form, Input, message, Modal, Row, Select
 import { useUpdateMember } from "../../api/members/update-member";
 import { useEffect } from "react";
 import dayjs from "dayjs";
-import { Member, UpdateMemberParams, useMembersStore } from "../../stores/members/memberStore";
+import { Member, UpdateMemberParams, useMembersStore } from "../../stores/MemberStore";
 const { Option } = Select;
 
 

@@ -1,6 +1,6 @@
 import { Button, message, Popconfirm, Space } from "antd";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
-import { useAllergiesStore } from "../../stores/allergies/allergyStore";
+import { useAllergiesStore } from "../../stores/allergyStore";
 import { useDeleteAllergy } from "../../api/allergies/delete-allergy";
 import { useMemo } from "react";
 import { ColumnType } from "antd/es/table";

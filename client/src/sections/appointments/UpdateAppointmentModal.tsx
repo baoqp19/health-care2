@@ -2,7 +2,7 @@ import { Button, Form, Input, Modal, Select, DatePicker, Row, Col, message } fro
 import { Flex } from "antd";
 import { useEffect } from "react";
 import moment from "moment";
-import { UpdateAppointmentParams, useAppointmentsStore } from "../../stores/appointments/appointmentStore";
+import { UpdateAppointmentParams, useAppointmentsStore } from "../../stores/appointmentStore";
 import { useMembers } from "../../api/members/get-members";
 import { useUpdateAppointment } from "../../api/appointments/update-appointment";
 import { Appointment123 } from "../../types";

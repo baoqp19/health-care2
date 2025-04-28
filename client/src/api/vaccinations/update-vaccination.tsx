@@ -3,13 +3,13 @@ import { AxiosResponse } from 'axios';
 import { useMutation, UseMutationOptions, useQueryClient } from '@tanstack/react-query';
 import { ROW_PER_PAGE } from '../../config/constants';
 import { getVaccinationsQueryOptions } from "./get-vaccination";
-import { UpdateVaccinationParams, Vaccination } from "../../stores/vaccinations/VaccinationStore";
+import { UpdateVaccinationParams, Vaccination } from "../../stores/VaccinationStore";
 
 
 
 
-export const updateVaccination = async ({ vaccinationID, data }: UpdateVaccinationParams): Promise<Vaccination> => {
-    const response: AxiosResponse<Vaccination> = await axios.put(`/vaccinations/${vaccinationID}`, data);
+export const updateVaccination = async ({ id, data }: UpdateVaccinationParams): Promise<Vaccination> => {
+    const response: AxiosResponse<Vaccination> = await axios.put(`/vaccinations/${id}`, data);
     return response.data;
 };
 

@@ -1,9 +1,10 @@
 import { useMemo } from "react";
 import { Button, message, Popconfirm, Space } from "antd";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
-import { MedicalRecord, useMedicalRecordsStore } from "../../stores/medical-records/medicalRecordStore";
+import { MedicalRecord, useMedicalRecordsStore } from "../../stores/medicalRecordStore";
 import { useDeleteMedicalRecord } from "../../api/medicalRecords/delete-medical-records";
 import { ColumnType } from "antd/es/table";
+import { useTranslation } from "react-i18next";
 
 const useMedicalRecordColumns = () => {
   const { setOpenUpdateModal, setMedicalRecord } = useMedicalRecordsStore((state) => state);
@@ -18,6 +19,8 @@ const useMedicalRecordColumns = () => {
       );
     },
   });
+
+  const t = useTranslation();
 
   const handleEdit = (medicalRecord: MedicalRecord) => {
     setMedicalRecord(medicalRecord);
@@ -94,7 +97,7 @@ const useMedicalRecordColumns = () => {
         ),
       },
     ],
-    []
+    [t]
   );
   return columns
 };

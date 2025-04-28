@@ -5,7 +5,7 @@ import { VaccinationTable } from "../../sections/vaccinations/VaccinationTable";
 import ConfirmModal from "../../components/modals/ConfirmModal";
 import CreateVaccinationModal from "../../sections/vaccinations/CreateVaccinationModal";
 import UpdateVaccinationModal from "../../sections/vaccinations/UpdateVaccinationModal";
-import { useVaccinationsStore } from "../../stores/vaccinations/VaccinationStore";
+import { useVaccinationsStore } from "../../stores/VaccinationStore";
 import { useTranslation } from "react-i18next";
 
 const VaccinationPage = () => {

@@ -1,6 +1,6 @@
 import { PlusSquareOutlined } from "@ant-design/icons";
 import { Button, Flex, Space } from "antd";
-import { useEmergencyContactStore } from "../../stores/emergencyContacts/emergencyContactStore";
+import { useEmergencyContactStore } from "../../stores/emergencyContactStore";
 import PageHeader from "../../components/page-header";
 import { EmergencyContactTable } from "../../sections/emergencyContacts/EmergencyContactTable";
 import ConfirmModal from "../../components/modals/ConfirmModal";

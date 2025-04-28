@@ -1,7 +1,7 @@
 import { Button, Form, Input, Modal, Row, Col, message, Select } from "antd";
 import { Flex } from "antd";
 import { useEffect, useMemo } from "react";
-import { Allergy, UpdateAllergyProps, useAllergiesStore } from "../../stores/allergies/allergyStore";
+import { Allergy, UpdateAllergyProps, useAllergiesStore } from "../../stores/allergyStore";
 import { useUpdateAllergy } from "../../api/allergies/update-allergy";
 import { useMembersByUser } from "../../api/members/get-members";
 const { Option } = Select;

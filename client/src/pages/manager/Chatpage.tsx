@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Input, Button, Avatar, Spin } from "antd";
 import { UserOutlined, RobotOutlined } from "@ant-design/icons";
 import Markdown from "react-markdown";
-import { useChatAiStore } from "../../stores/chat-ai/chatAiStore";
+import { useChatAiStore } from "../../stores/chatAiStore";
 import { useChatAi } from "../../api/ai/chat-ai";
 
 const ChatPage = () => {

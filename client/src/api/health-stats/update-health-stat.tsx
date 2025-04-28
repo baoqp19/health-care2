@@ -2,7 +2,7 @@ import axios from "../../axios/axios-customize"
 import { AxiosResponse } from 'axios';
 import { useMutation, UseMutationOptions, useQueryClient } from '@tanstack/react-query';
 import { ROW_PER_PAGE } from '../../config/constants';
-import { HealthStat, UpdateHealthStatParams } from "../../stores/health-stats/healthStatStore";
+import { HealthStat, UpdateHealthStatParams } from "../../stores/healthStatStore";
 import { getMembersQueryOptions } from "../members/get-members";
 
 

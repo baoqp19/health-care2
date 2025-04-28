@@ -1,6 +1,6 @@
 import { queryOptions, useQuery } from "@tanstack/react-query";
 import axios from "../../axios/axios-customize"
-import { MedicalRecord } from "../../stores/medical-records/medicalRecordStore";
+import { MedicalRecord } from "../../stores/medicalRecordStore";
 
 
 

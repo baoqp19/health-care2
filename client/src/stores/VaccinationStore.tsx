@@ -1,44 +1,41 @@
-import { create } from "zustand";
-import { Allergy123 } from "../../types";
+import { create } from 'zustand';
+import { Vaccination123 } from '../types';
+import { Member } from './MemberStore';
 
-// Định nghĩa kiểu dữ liệu cho store Zustand
 
-export interface Allergy {
-    id: number;
+export interface Vaccination {
+    id: number
     memberId: number;
-    allergyType: string,
-    severity: string,
-    symptoms: string,
+    member: Member;
+    vaccineName: string
+    dateAdministered: string
 }
 
 
-export interface AllergyUpdateProps {
-    memberId: number;
-    allergyType: string,
-    severity: string,
-    symptoms: string,
+export interface VaccinationUpdateProps {
+    memberId: number
+    vaccineName: string
+    dateAdministered: string
 }
 
 
 
 // Định nghĩa kiểu dữ liệu cho hàm mutationFn
-export interface UpdateAllergyProps {
+export interface UpdateVaccinationParams {
     id: number | null;
-    data: AllergyUpdateProps;
+    data: VaccinationUpdateProps;
 }
 
-
-
-interface MembersStore {
-
-    allergy: Allergy123 | null;
+// Định nghĩa kiểu dữ liệu cho store Zustand
+interface VaccinationStore {
+    vaccination: Vaccination123 | null;
     isLoading: boolean;
     error: string | null;
     openCreateModal: boolean;
     openUpdateModal: boolean;
     openDeleteModal: boolean;
 
-    setAllergy: (allergy: Allergy123) => void;
+    setVaccination: (vaccination: Vaccination123) => void;
     setLoading: (isLoading: boolean) => void;
     setError: (error: string | null) => void;
     setOpenCreateModal: (open: boolean) => void;
@@ -47,22 +44,19 @@ interface MembersStore {
 }
 
 
-// Tạo Zustand store với kiểu dữ liệu `MembersStore`
-export const useAllergiesStore = create<MembersStore>((set) => ({
-    allergy: null,
+export const useVaccinationsStore = create<VaccinationStore>((set) => ({
+    vaccination: null,
     isLoading: false,
     error: null,
     openCreateModal: false,
     openUpdateModal: false,
     openDeleteModal: false,
 
-
-    setAllergy: (allergy) => set({ allergy }),
+    setVaccination: (vaccination) => set({ vaccination }),
     setLoading: (isLoading) => set({ isLoading }),
     setError: (error) => set({ error }),
     setOpenCreateModal: (openCreateModal) => set({ openCreateModal }),
     setOpenUpdateModal: (openUpdateModal) => set({ openUpdateModal }),
     setOpenDeleteModal: (openDeleteModal) => set({ openDeleteModal }),
-
 
 }));

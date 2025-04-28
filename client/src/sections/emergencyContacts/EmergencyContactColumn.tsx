@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { Button, message, Popconfirm, Space } from "antd";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
-import { Contact, useEmergencyContactStore } from "../../stores/emergencyContacts/emergencyContactStore";
+import { Contact, useEmergencyContactStore } from "../../stores/emergencyContactStore";
 import { ColumnType } from "antd/es/table";
 import { useDeleteEmergencyContact } from "../../api/emergencyContacts/delete-emeregencyContact";
 import { useTranslation } from "react-i18next";

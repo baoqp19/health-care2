@@ -5,7 +5,7 @@ import { DeleteOutlined, LockOutlined, UnlockOutlined } from "@ant-design/icons"
 import { useTranslation } from "react-i18next";
 import { useUpdateBlockStateUser } from "../../api/user/update-block-state-user";
 import { ColumnType } from "antd/es/table";
-import { Users } from "../../stores/users/userStore";
+import { Users } from "../../stores/userStore";
 
 
 const useUserColumns = () => {

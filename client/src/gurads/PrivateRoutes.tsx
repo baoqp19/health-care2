@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import { useAuthStore } from "../stores/auth/authStore";
+import { useAuthStore } from "../stores/authStore";
 import { useAccount } from "../api/auth/me";
 import { startTransition } from "react";
 

@@ -1,5 +1,5 @@
 import { PlusSquareOutlined } from "@ant-design/icons";
-import { useAllergiesStore } from '../../stores/allergies/allergyStore';
+import { useAllergiesStore } from '../../stores/allergyStore';
 import { Button, Flex, Space } from 'antd';
 import PageHeader from '../../components/page-header';
 import ConfirmModal from '../../components/modals/ConfirmModal';

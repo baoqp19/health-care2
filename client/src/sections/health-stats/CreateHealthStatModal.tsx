@@ -1,7 +1,7 @@
 import { Button, Form, Input, Modal, DatePicker, Row, Col, message, Select } from "antd";
 import { Flex } from "antd";
 import { useState } from "react";
-import { HealthStat, useHealthStatsStore } from "../../stores/health-stats/healthStatStore";
+import { HealthStat, useHealthStatsStore } from "../../stores/healthStatStore";
 import dayjs from "dayjs";
 import { useCreateHealthStat } from "../../api/health-stats/create-health-stat";
 

@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { Button, message, Popconfirm, Space } from "antd";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import { useTranslation } from "react-i18next";
-import { HealthStat, useHealthStatsStore } from "../../stores/health-stats/healthStatStore";
+import { HealthStat, useHealthStatsStore } from "../../stores/healthStatStore";
 import { useDeleteHealthStat } from "../../api/health-stats/delete-health-stat";
 import { ColumnType } from "antd/es/table";
 

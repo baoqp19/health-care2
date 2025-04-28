@@ -2,7 +2,7 @@ import { useMutation, UseMutationOptions, useQueryClient } from "@tanstack/react
 import { AxiosResponse } from "axios";
 import axios from "../../axios/axios-customize"
 import { ROW_PER_PAGE } from "../../config/constants";
-import { HealthStat } from "../../stores/health-stats/healthStatStore";
+import { HealthStat } from "../../stores/healthStatStore";
 import { getVaccinationsQueryOptions } from "../vaccinations/get-vaccination";
 
 

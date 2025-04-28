@@ -3,7 +3,7 @@ import { AxiosResponse } from "axios";
 import axios from "../../axios/axios-customize"
 import { ROW_PER_PAGE } from "../../config/constants";
 import { getVaccinationsQueryOptions } from "./get-vaccination";
-import { Vaccination } from "../../stores/vaccinations/VaccinationStore";
+import { Vaccination } from "../../stores/VaccinationStore";
 
 
 export const createVaccination = async (vaccinatioin: Vaccination): Promise<Vaccination> => {

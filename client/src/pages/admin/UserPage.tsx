@@ -1,6 +1,6 @@
 import { Flex } from "antd";
 import { useTranslation } from "react-i18next";
-import { useUsersStore } from "../../stores/users/userStore";
+import { useUsersStore } from "../../stores/userStore";
 import PageHeader from "../../components/page-header";
 import { UserTable } from "../../sections/users/UserTable";
 import ConfirmModal from "../../components/modals/ConfirmModal";

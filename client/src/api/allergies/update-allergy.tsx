@@ -4,7 +4,7 @@ import { AxiosResponse } from 'axios';
 import { useMutation, UseMutationOptions, useQueryClient } from '@tanstack/react-query';
 import { ROW_PER_PAGE } from '../../config/constants';
 import { getAllergiesQueryOptions } from './get-allergy';
-import { Allergy, UpdateAllergyProps } from '../../stores/allergies/allergyStore';
+import { Allergy, UpdateAllergyProps } from '../../stores/allergyStore';
 
 
 

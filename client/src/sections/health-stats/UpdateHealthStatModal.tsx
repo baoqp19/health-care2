@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button, Form, Input, Modal, DatePicker, Row, Col, message, Select } from "antd";
 import moment from "moment";
-import { HealthStat, useHealthStatsStore } from "../../stores/health-stats/healthStatStore";
+import { HealthStat, useHealthStatsStore } from "../../stores/healthStatStore";
 import { useUpdateHealthStat } from "../../api/health-stats/update-health-stat";
 import dayjs from "dayjs";
 

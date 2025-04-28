@@ -1,6 +1,6 @@
 import { queryOptions, useQuery } from "@tanstack/react-query";
 import axios from "../../axios/axios-customize"
-import { HealthStat } from "../../stores/health-stats/healthStatStore";
+import { HealthStat } from "../../stores/healthStatStore";
 
 
 interface GetHealthStatsParams {

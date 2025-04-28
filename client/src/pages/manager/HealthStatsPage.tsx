@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { PlusSquareOutlined } from "@ant-design/icons";
 import { Button, Flex, Select, Space } from "antd";
-import { useHealthStatsStore } from '../../stores/health-stats/healthStatStore';
+import { useHealthStatsStore } from '../../stores/healthStatStore';
 import ConfirmModal from '../../components/modals/ConfirmModal';
 import PageHeader from '../../components/page-header';
 import BloodPressureContainer from '../../sections/health-stats/BloodPressureContainer';

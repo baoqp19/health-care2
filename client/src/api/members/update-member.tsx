@@ -3,7 +3,7 @@ import { AxiosResponse } from 'axios';
 import { useMutation, UseMutationOptions, useQueryClient } from '@tanstack/react-query';
 import { getMembersQueryOptions } from './get-members';
 import { ROW_PER_PAGE } from '../../config/constants';
-import { Member, UpdateMemberParams } from '../../stores/members/memberStore';
+import { Member, UpdateMemberParams } from '../../stores/MemberStore';
 
 
 export const updateMember = async ({ id, data }: UpdateMemberParams): Promise<Member> => {

@@ -3,7 +3,7 @@ import { Content, Footer } from "antd/es/layout/layout";
 import logo from "../../assets/logo.png";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { GithubOutlined, TwitterOutlined, FacebookOutlined } from '@ant-design/icons';
-import { useAuthStore } from "../../stores/auth/authStore";
+import { useAuthStore } from "../../stores/authStore";
 import LanguageSwitcher from "../../components/languageSwitcher";
 import { useTranslation } from "react-i18next";
 

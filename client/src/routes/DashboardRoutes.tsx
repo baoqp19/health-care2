@@ -10,15 +10,14 @@ const VaccinationPage = Loadable(React.lazy(() => import('../pages/manager/Vacci
 const AppointmentPage = Loadable(React.lazy(() => import('../pages/manager/AppointmentPage')));
 const MemberPage = Loadable(React.lazy(() => import("../pages/manager/MemberPage")));
 const AllergyPage = Loadable(React.lazy(() => import('../pages/manager/AllergyPage')));
-const MedicationPage = Loadable(React.lazy(() => import('../pages/manager/MedicationPage')));
 const EmergencyContactPage = Loadable(React.lazy(() => import('../pages/manager/EmergencyContactPage')));
 const HelpPage = Loadable(React.lazy(() => import('../pages/manager/HelpPage')));
 const MedicalRecordPage = Loadable(React.lazy(() => import('../pages/manager/MedicalRecordPage')));
-const DocumentPage = Loadable(React.lazy(() => import('../pages/manager/DocumentPage')));
 const HealthStatsPage = Loadable(React.lazy(() => import('../pages/manager/HealthStatsPage')))
 const AccountSettingPage = Loadable(React.lazy(() => import('../pages/manager/AccountSettingPage')))
 const ChatPage = Loadable(React.lazy(() => import('../pages/manager/Chatpage')))
-const NotePage = Loadable(React.lazy(() => import('../pages/manager/Notepage')))
+
+
 
 
 export const DashboardRoutes = [
@@ -37,10 +36,6 @@ export const DashboardRoutes = [
       {
         path: 'allergies',
         element: <AllergyPage />
-      },
-      {
-        path: 'medications',
-        element: <MedicationPage />
       },
       {
         path: 'vaccinations',
@@ -68,17 +63,8 @@ export const DashboardRoutes = [
         element: <MedicalRecordPage />
       },
       {
-        path: 'documents',
-        // element: <PrivateRoute element={<DocumentPage />} />
-        element: <DocumentPage />
-      },
-      {
         path: 'appointments',
         element: <AppointmentPage />
-      },
-      {
-        path: 'notes',
-        element: <NotePage />
       },
       {
         path: 'chat-ai',

@@ -1,71 +1,51 @@
-import { create } from "zustand"
+import { create } from 'zustand';
+import { Appointment123 } from '../types';
 
 
-export interface Note {
-    noteID: number
-    userID: number
-    title: string
-    content: string
-    createAt: string
-    noteIndex: number
+export interface AppointmentUpdateProps {
+    memberId: number
+    time: string
+    doctor: string
+    location: string
 }
 
-export interface NoteC {
-    title: string
-    content: string
-    createAt: string
-    noteIndex: number
+// Định nghĩa kiểu dữ liệu cho hàm mutationFn
+export interface UpdateAppointmentParams {
+    id: number | null;
+    data: Appointment123;
 }
 
-type NoteUpdateProps = {
-    noteIndex?: number;
-    createAt?: string;
-    title: string;
-    content: string;
-}
-
-export interface UpdateNoteParams {
-    noteId: number;
-    data: NoteUpdateProps;
-}
-
-
-interface NotesStore {
-    note: Note | null;
+// Định nghĩa kiểu dữ liệu cho store Zustand
+interface AppointmentsStore {
+    appointment: Appointment123 | null;
     isLoading: boolean;
     error: string | null;
     openCreateModal: boolean;
     openUpdateModal: boolean;
     openDeleteModal: boolean;
 
-    setNote: (note: Note) => void;
+    setAppointment: (appointment: Appointment123) => void;
     setLoading: (isLoading: boolean) => void;
     setError: (error: string | null) => void;
     setOpenCreateModal: (open: boolean) => void;
     setOpenUpdateModal: (open: boolean) => void;
     setOpenDeleteModal: (open: boolean) => void;
-
 }
 
 
-
-
-
-export const useNotesStore = create<NotesStore>((set) => ({
-    note: null,
+export const useAppointmentsStore = create<AppointmentsStore>((set) => ({
+    appointment: null,
     isLoading: false,
     error: null,
     openCreateModal: false,
     openUpdateModal: false,
     openDeleteModal: false,
 
-
-    setNote: (note) => set({ note }),
+    setAppointment: (appointment) => set({ appointment }),
     setLoading: (isLoading) => set({ isLoading }),
     setError: (error) => set({ error }),
     setOpenCreateModal: (openCreateModal) => set({ openCreateModal }),
     setOpenUpdateModal: (openUpdateModal) => set({ openUpdateModal }),
     setOpenDeleteModal: (openDeleteModal) => set({ openDeleteModal }),
-
 
 }));

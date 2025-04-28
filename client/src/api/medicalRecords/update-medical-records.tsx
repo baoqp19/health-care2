@@ -2,7 +2,7 @@ import axios from "../../axios/axios-customize"
 import { AxiosResponse } from 'axios';
 import { useMutation, UseMutationOptions, useQueryClient } from '@tanstack/react-query';
 import { ROW_PER_PAGE } from '../../config/constants';
-import { MedicalRecord, UpdateMedicalRecordParams } from "../../stores/medical-records/medicalRecordStore";
+import { MedicalRecord, UpdateMedicalRecordParams } from "../../stores/medicalRecordStore";
 import { getMedicalrecordsQueryOptions } from "./get-medical-records";
 
 
@@ -14,7 +14,7 @@ export const updateMedicalRecord = async ({ recordID, data }: UpdateMedicalRecor
 
 // Hook useMutation để cập nhật MedicalRecord
 export const useUpdateMedicalRecord = (options?: UseMutationOptions<MedicalRecord, Error, UpdateMedicalRecordParams>) => {
-    
+
     const { onSuccess, onError, ...restConfig } = options || {};
     const queryClient = useQueryClient();
 

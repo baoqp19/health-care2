@@ -3,7 +3,7 @@ import { Button, message, Popconfirm, Space } from "antd";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
-import { useAppointmentsStore } from "../../stores/appointments/appointmentStore";
+import { useAppointmentsStore } from "../../stores/appointmentStore";
 import { useDeleteAppointment } from "../../api/appointments/delete-appointment";
 import { ColumnType } from "antd/es/table";
 import { Appointment123 } from "../../types";

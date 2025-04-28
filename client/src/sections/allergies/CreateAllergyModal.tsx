@@ -1,6 +1,6 @@
 import { Button, Form, Input, Modal, Select, Row, Col, message } from "antd";
 import { Flex } from "antd";
-import { Allergy, useAllergiesStore } from "../../stores/allergies/allergyStore";
+import { Allergy, useAllergiesStore } from "../../stores/allergyStore";
 import { useCreateAllergy } from "../../api/allergies/create-allergy";
 import { useMembers, useMembersByUser } from "../../api/members/get-members";
 import { useMemo } from "react";

@@ -1,6 +1,6 @@
 import { Flex } from "antd";
 import { useTranslation } from "react-i18next";
-import { useContactsStore } from "../../stores/contacts/contactStore";
+import { useContactsStore } from "../../stores/contactStore";
 import PageHeader from "../../components/page-header";
 import { ContactTable } from "../../sections/contacts/ContactTable";
 import ConfirmModal from "../../components/modals/ConfirmModal";

@@ -1,6 +1,6 @@
 import { PlusSquareOutlined } from "@ant-design/icons";
 import { Button, Flex, Space } from "antd";
-import { useMedicalRecordsStore } from "../../stores/medical-records/medicalRecordStore";
+import { useMedicalRecordsStore } from "../../stores/medicalRecordStore";
 import PageHeader from "../../components/page-header";
 import { MedicalRecordTable } from "../../sections/medical-records/MedicalRecordTable";
 import ConfirmModal from "../../components/modals/ConfirmModal";
@@ -8,7 +8,7 @@ import CreateMedicalRecordModal from "../../sections/medical-records/CreateMedic
 import UpdateMedicalRecordModal from "../../sections/medical-records/UpdateMedicalRecordModal";
 
 const MedicalRecordPage = () => {
-  
+
   const { openDeleteModal, openCreateModal, openUpdateModal, setOpenDeleteModal, setOpenCreateModal, setOpenUpdateModal } = useMedicalRecordsStore((state) => state);
 
   const handleDeleteCancel = () => {

@@ -1,6 +1,6 @@
 import { useMutation, UseMutationOptions, } from "@tanstack/react-query";
 import axios from "../../axios/axios-customize"
-import { useAuthStore } from "../../stores/auth/authStore";
+import { useAuthStore } from "../../stores/authStore";
 import { AxiosResponse } from "axios";
 
 export const login = async ({ email, password }: any) => {
