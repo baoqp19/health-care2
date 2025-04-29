@@ -1,9 +1,6 @@
 import { Button, Form, Input, Modal, Select, Row, DatePicker, Col, message, Tabs } from "antd";
-import { Flex } from "antd";
 import { useEffect, useState } from "react";
 import { UpdateMedicalRecordParams, useMedicalRecordsStore } from "../../stores/medicalRecordStore";
-import { useUpdateMedicalRecord } from "../../api/medicalRecords/update-medical-records";
-import dayjs from "dayjs";
 import { MedicalRecord } from "../../types";
 import moment from "moment";
 import MemberInfoForm from "./MemberInfoForm";
@@ -50,6 +47,7 @@ const UpdateMedicalRecordModal: React.FC<UpdateMedicalRecordModalProps> = ({ ope
       setListMedication(medicalRecord?.medications);
       setListDocument(medicalRecord?.documents);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [medicalRecord]);
 
   const onFinish = (values: MedicalRecord) => {

@@ -38,6 +38,8 @@ const DocumentList = () => {
 			handleFileUpload(position, file);
 		}
 	};
+
+
 	return (
 		<div className="p-6 bg-white rounded-lg shadow-sm">
 			{listDocuments.length > 0 ? (
@@ -75,9 +77,14 @@ const DocumentList = () => {
 										className="flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-600 rounded-lg cursor-pointer hover:bg-blue-100 transition-colors"
 									>
 										<UploadOutlined />
-										{/* {document.file ? 'Thay đổi file' : 'Chọn file'} */}
+										{document.file ? 'Thay đổi file' : 'Chọn file'}
 									</label>
 								</div>
+								{document.type && (
+									<div className="px-3 py-1 bg-gray-50 rounded-full text-sm text-gray-500">
+										{/* <span>{document.type.split('/')[1].toUpperCase()} - {(document.size / 1024 / 1024).toFixed(2)}MB</span> */}
+									</div>
+								)}
 
 								{document.path && (
 									<div className="w-12 h-12 rounded-lg overflow-hidden border border-gray-200">
@@ -102,8 +109,6 @@ const DocumentList = () => {
 										Tải xuống
 									</Button>
 								)}
-
-
 
 								<Button
 									type="text"

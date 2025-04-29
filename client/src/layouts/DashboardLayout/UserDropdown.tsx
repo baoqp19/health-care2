@@ -14,6 +14,8 @@ const UserDropdown = () => {
   const navigate = useNavigate();
   const { user, clearUser } = useAuthStore();
 
+  console.log("user", user);
+
   const handleLogout = () => {
     Cookies.remove('token');
     clearUser();
@@ -66,11 +68,9 @@ const UserDropdown = () => {
         items,
       }}
       dropdownRender={(menu) => {
-        // Kiểm tra menu có phải là ReactElement hợp lệ không
         if (!React.isValidElement(menu)) {
           return <div>Invalid Menu</div>; // Nếu không hợp lệ, trả về div mặc định
         }
-
         return (
           <div style={contentStyle}>
             <Space

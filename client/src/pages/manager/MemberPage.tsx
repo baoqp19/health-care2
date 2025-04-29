@@ -1,5 +1,5 @@
 import { PlusSquareOutlined } from "@ant-design/icons";
-import { Button, Flex, Space } from "antd";
+import { Button, Col, Flex, Row, Space } from "antd";
 
 import PageHeader from "../../components/page-header";
 import ConfirmModal from "../../components/modals/ConfirmModal";
@@ -34,22 +34,29 @@ const MemberPage = () => {
 
   return (
     <>
-      <Flex align="center" justify="space-between" className="mb-1">
-        <PageHeader
-          heading={t("Members")}
-          links={[{ title: t("Dashboard"), href: "/manager" }, { title: t("Members") }]}
-        />
-        <Space>
-          <Button
-            onClick={handleCreate}
-            type="primary"
-            icon={<PlusSquareOutlined />}
-          >
-            Add
-          </Button>
-        </Space>
-      </Flex>
-      <MemberTable />
+      <Row gutter={16}>
+        <Col span={24}>
+          <Flex align="center" justify="space-between" className="mb-1">
+            <PageHeader
+              heading={t("Members")}
+              links={[
+                { title: t("Dashboard"), href: "/manager" },
+                { title: t("Members") },
+              ]}
+            />
+            <Space>
+              <Button
+                onClick={handleCreate}
+                type="primary"
+                icon={<PlusSquareOutlined />}
+              >
+                Add
+              </Button>
+            </Space>
+          </Flex>
+          <MemberTable />
+        </Col>
+      </Row>
       <ConfirmModal
         title={'t("warning_delete.Member")'}
         content={"oming Soon"}

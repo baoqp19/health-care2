@@ -135,6 +135,7 @@ export interface Document {
     position: number;
     size: number;
     name: string;
+    file?: File;
     type: string;
     path: string;
 }
