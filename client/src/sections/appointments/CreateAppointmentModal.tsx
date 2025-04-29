@@ -3,9 +3,8 @@ import { Button, Form, Input, Modal, DatePicker, Row, Col, Select, message } fro
 import { Flex } from "antd";
 import { useEffect } from "react";
 import { useAppointmentsStore } from "../../stores/appointmentStore";
-import { useMembers, useMembersByUser } from "../../api/members/get-members";
+import { useMembersByUser } from "../../api/members/get-members";
 import { useCreateAppointment } from "../../api/appointments/create-appointment";
-import { Member } from "../../stores/MemberStore";
 import { Appointment123, MemberAndUser } from "../../types";
 
 const { Option } = Select;
@@ -14,7 +13,6 @@ type PropsCreate = {
   open: boolean,
   handleCancel?: () => void
 }
-
 
 const CreateAppointmentModal = ({ open, handleCancel }: PropsCreate) => {
   const [form] = Form.useForm();
@@ -42,7 +40,6 @@ const CreateAppointmentModal = ({ open, handleCancel }: PropsCreate) => {
   });
 
   const onFinish = (values: Appointment123) => {
-    console.log("Received values:", values);
     mutation.mutate(values);
   };
 

@@ -2,6 +2,7 @@ import { useMutation, UseMutationOptions, } from "@tanstack/react-query";
 import axios from "../../axios/axios-customize"
 import { useAuthStore } from "../../stores/authStore";
 import { AxiosResponse } from "axios";
+import Cookies from "js-cookie";
 
 export const login = async ({ email, password }: any) => {
 
@@ -42,6 +43,7 @@ export const useLogin = (options: UseLoginOptions = {}) => {
             const result = data;
             setUser(result.user);
             localStorage.setItem("access_token", result.access_token)
+            Cookies.set("access_token", result.access_token);
             setIsAuthenticated(true);
             onSuccess?.(data, ...args);
         },
@@ -49,6 +51,7 @@ export const useLogin = (options: UseLoginOptions = {}) => {
             onError?.(error, ...args);
             setIsAuthenticated(false);
             localStorage.removeItem("access_token")
+            Cookies.remove("access_token");
         },
         ...restConfig,
     });
@@ -79,7 +82,6 @@ export const googleLogin = async ({ data }: GoogleLoginData): Promise<GoogleLogi
 };
 
 
-// ✅ Hook mutation
 export const useGoogleLoginMutation = ({
     mutationConfig,
 }: {

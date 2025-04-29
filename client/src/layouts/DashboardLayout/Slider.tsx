@@ -38,7 +38,7 @@ const ResponsiveSider = ({ collapsed, setCollapsed }: ResponsiveSiderProps) => {
                             navigate("/");
                         }}
                     >
-                        <img src={logo} className="w-14 h-14" />
+                        <img src={logo} className="w-20 h-20 object-fill" />
                         <span className="text-xl font-bold text-primary">FamilyHealth</span>
                     </Space>
                     <MenuCustom
@@ -63,10 +63,11 @@ const ResponsiveSider = ({ collapsed, setCollapsed }: ResponsiveSiderProps) => {
                                 navigate("/");
                             }}
                         >
-                            <img src={logo} onClick={() => { navigate("/") }} className="w-14 h-14" />
-                            <Typography.Title level={4} color="text-green-600">
+                            <img src={logo} className="w-20 h-20" />
+                            {!collapsed && <span className="text-xl font-bold text-primary">
                                 FamilyHealth
-                            </Typography.Title>
+                            </span>}
+
                         </Space>
                         <MenuCustom
                             mode="inline"

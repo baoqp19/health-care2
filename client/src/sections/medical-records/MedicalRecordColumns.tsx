@@ -34,46 +34,46 @@ const useMedicalRecordColumns = () => {
   const columns = useMemo<ColumnType<MedicalRecord>[]>(
     () => [
       {
-        title: "#ID",
+        title: "ID",
         dataIndex: "id",
         key: "id",
         align: "center",
       },
       {
-        title: "Member name",
+        title: "Thành viên",
         dataIndex: "memberName",
         key: "memberName"
       },
       {
-        title: "Date",
+        title: "Tên cơ sở",
+        dataIndex: "facilityName",
+        key: "facilityName",
+      },
+      {
+        title: "Ngày",
         dataIndex: "date",
         key: "date",
         align: "center",
       },
       {
-        title: "Doctor",
+        title: "Bác sĩ",
         dataIndex: "doctor",
         key: "doctor",
       },
       {
-        title: "Symptoms",
+        title: "Triệu chứng",
         dataIndex: "symptoms",
         key: "symptoms",
       },
       {
-        title: "Diagnosis",
+        title: "Chuẩn đoán",
         dataIndex: "diagnosis",
         key: "diagnosis",
       },
       {
-        title: "Treatment",
+        title: "Điều trị",
         dataIndex: "treatment",
         key: "treatment",
-      },
-      {
-        title: "Facility name",
-        dataIndex: "facilityName",
-        key: "facilityName",
       },
       {
         title: "Action",

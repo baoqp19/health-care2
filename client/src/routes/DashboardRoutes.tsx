@@ -5,7 +5,6 @@ import PrivateRoute from "../gurads/PrivateRoutes";
 import DashboardLayout from "../layouts/DashboardLayout";
 
 
-const DashBoardPage = Loadable(React.lazy(() => import("../pages/manager/DashBoardPage")));
 const VaccinationPage = Loadable(React.lazy(() => import('../pages/manager/VaccinationPage')));
 const AppointmentPage = Loadable(React.lazy(() => import('../pages/manager/AppointmentPage')));
 const MemberPage = Loadable(React.lazy(() => import("../pages/manager/MemberPage")));
@@ -19,16 +18,11 @@ const ChatPage = Loadable(React.lazy(() => import('../pages/manager/Chatpage')))
 
 
 
-
 export const DashboardRoutes = [
   {
     path: '/manager',
     element: <PrivateRoute element={<DashboardLayout />} />,
     children: [
-      {
-        path: "",
-        element: <DashBoardPage />
-      },
       {
         path: 'members',
         element: <MemberPage />

@@ -3,16 +3,12 @@ import {
     UserOutlined,
     FileTextOutlined,
     CalendarOutlined,
-    MedicineBoxOutlined,
-    ExclamationCircleOutlined,
     FileSearchOutlined,
     SettingOutlined,
     QuestionCircleOutlined,
     HeartOutlined,
-    SolutionOutlined,
     RobotOutlined,
-    BookOutlined,
-    HeatMapOutlined
+    PhoneOutlined
 } from "@ant-design/icons";
 
 import { useTranslation } from "react-i18next";
@@ -22,89 +18,52 @@ const MenuDashboardConfig = () => {
 
     const menuItems = [
         {
-            key: "a",
-            icon: <DashboardOutlined />,
-            label: t("Dashboard"),
+            key: "1",
+            icon: <UserOutlined />,
+            label: t("Members"),
             path: "/manager",
         },
         {
-            key: "b",
-            label: t("Manager"),
-            icon: <HeatMapOutlined />,
-            children: [
-                {
-                    key: "1",
-                    icon: <UserOutlined />,
-                    label: t("Members"),
-                    path: "/manager/members",
-                },
-                {
-                    key: "9",
-                    icon: <CalendarOutlined />,
-                    label: t("Vaccinations"),
-                    path: "/manager/vaccinations",
-                },
-                {
-                    key: "5",
-                    icon: <CalendarOutlined />,
-                    label: t("Appointments"),
-                    path: "/manager/appointments",
-                },
-                {
-                    key: "8",
-                    icon: <FileSearchOutlined />,
-                    label: t("Allergies"),
-                    path: "/manager/allergies",
-                },
-                {
-                    key: "3",
-                    icon: <FileTextOutlined />,
-                    label: t("Medical Records"),
-                    path: "/manager/medical-records",
-                },
-                {
-                    key: "4",
-                    icon: <SolutionOutlined />,
-                    label: t("Documents"),
-                    path: "/manager/documents",
-                },
-                {
-                    key: "6",
-                    icon: <MedicineBoxOutlined />,
-                    label: t("Medications"),
-                    path: "/manager/medications",
-                },
-                {
-                    key: "12",
-                    icon: <HeartOutlined />,
-                    label: t("Health Stats"),
-                    path: "/manager/health-stats",
-                },
-                {
-                    key: "7",
-                    icon: <ExclamationCircleOutlined />,
-                    label: t("Emergency Contacts"),
-                    path: "/manager/emergency-contacts",
-                },
-            ],
+            key: "9",
+            icon: <CalendarOutlined />,
+            label: t("Vaccinations"),
+            path: "/manager/vaccinations",
         },
         {
-            key: "13",
-            icon: <BookOutlined />,
-            label: "Notes",
-            path: "/manager/notes",
+            key: "5",
+            icon: <CalendarOutlined />,
+            label: t("Appointments"),
+            path: "/manager/appointments",
+        },
+        {
+            key: "8",
+            icon: <FileSearchOutlined />,
+            label: t("Allergies"),
+            path: "/manager/allergies",
+        },
+        {
+            key: "12",
+            icon: <HeartOutlined />,
+            label: t("Health Stats"),
+            path: "/manager/health-stats",
+        },
+        {
+            key: "3",
+            icon: <FileTextOutlined />,
+            label: t("Medical Records"),
+            path: "/manager/medical-records",
+        },
+        {
+            key: "7",
+            icon: <PhoneOutlined />,
+            label: t("Emergency Contacts"),
+            path: "/manager/emergency-contacts",
         },
         {
             key: "14",
             icon: <RobotOutlined />,
             label: t("ChatAi"),
             path: "/manager/chat-ai",
-        },
-        {
-            key: "10",
-            icon: <SettingOutlined />,
-            label: t("Account Settings"),
-            path: "/manager/account-settings",
         },
         {
             key: "11",

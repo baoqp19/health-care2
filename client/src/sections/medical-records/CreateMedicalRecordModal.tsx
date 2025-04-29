@@ -2,9 +2,9 @@ import { MedicalRecord, useMedicalRecordsStore } from "../../stores/medicalRecor
 import { useCreateMedicalRecord } from "../../api/medicalRecords/create-medical-records";
 import MemberInfoForm from "./MemberInfoForm";
 import MedicationList from "./MedicationList";
-import DocumentUploadForm from "./DocumentUploadForm";
 import FooterButtons from "./FooterButtons";
-import { Form, message, Modal, Select, Tabs } from "antd";
+import { Form, Modal, Select, Tabs } from "antd";
+import DocumentList from "./DocumentList";
 const { Option } = Select;
 
 type PropsCreate = {
@@ -16,35 +16,31 @@ type PropsCreate = {
 const CreateMedicalRecordModal = ({ open, handleCancel }: PropsCreate) => {
   const [form] = Form.useForm();
 
+  const { openCreateModal, setOpenCreateModal, listDocuments, listMedications } = useMedicalRecordsStore();
 
-  const memberOptions: any[] = [];
-  const { openCreateModal, setOpenCreateModal } = useMedicalRecordsStore();
+
 
   const mutation = useCreateMedicalRecord({
-    onSuccess: () => {
-      form.resetFields();
-      setOpenCreateModal(false);
-      message.success("New medical record added successfully");
-    },
-    onError: () => {
-      message.error("Failed to add new medical record");
-    },
+    onSuccess: () => { },
+    onError: () => { },
   });
 
   const items = [
     { key: "0", label: "Thông tin", children: <MemberInfoForm form={form} /> },
     { key: "1", label: "Thuốc", children: <MedicationList /> },
-    { key: "2", label: "Tài liệu", children: <DocumentUploadForm /> },
+    { key: "2", label: "Tài liệu", children: <DocumentList /> },
   ];
 
   const onFinish = (values: MedicalRecord) => {
-    console.log(values)
+    values["medications"] = listMedications;
+    values["documents"] = listDocuments;
+    console.log("Values", values);
     mutation.mutate(values);
   };
 
   return (
     <Modal
-      title="Medical Record"
+      title="Hồ sơ y tế"
       width={1000}
       open={open}
       onCancel={() => setOpenCreateModal(false)}

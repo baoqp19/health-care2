@@ -1,4 +1,4 @@
-import { UseMutationOptions, useQuery } from "@tanstack/react-query";
+import { useQuery, UseQueryOptions } from "@tanstack/react-query";
 import axios from "../../axios/axios-customize"
 import { AxiosResponse } from "axios";
 
@@ -11,20 +11,14 @@ type User = {
 
 export const getAccount = async (): Promise<User> => {
   const response: AxiosResponse<User> = await axios.get(`/auth/account`);
-  console.log(response.data)
+  console.log(response.data);
   return response.data;
 };
 
-
-export const useAccount = (
-
-  options: UseMutationOptions<User, Error> = {}
-) => {
-  const { onSuccess, onError, ...restConfig } = options;
-  // const { setUser, setIsAuthenticated, setIsLoaded } = useAuthStore((state) => state);
-  return useQuery({
+export const useAccount = (options: Partial<UseQueryOptions<User, Error>> = {}) => {
+  return useQuery<User, Error>({
     queryKey: ['me'],
     queryFn: getAccount,
-
+    ...options,
   });
 };

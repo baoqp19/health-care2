@@ -109,7 +109,7 @@ const LoginPage = () => {
 
     <Space direction="vertical" className="p-10 w-full bg-white rounded-xl">
       <Link to='/' className="cursor-pointer">
-        <img src={logo} alt="logo" className="w-24 mx-auto" />
+        <img src={logo} alt="logo" className="w-40 mx-auto" />
       </Link>
       <Title level={4} className="text-center">
         Welcome to <span className="text-1xl font-bold ml-2 text-green-600"> {t("LoginPage.Name")}</span>
