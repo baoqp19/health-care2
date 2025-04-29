@@ -1,14 +1,9 @@
 import { queryOptions, useQuery } from "@tanstack/react-query";
 import axios from "../../axios/axios-customize"
-import { MedicalRecord } from "../../stores/medicalRecordStore";
+import { PaginatedMedicalRecordResponse } from "../../types";
 
 
 
-export type GetMedicalrecordsResponse = {
-  statusCode: number;
-  message: string;
-  data: MedicalRecord[];
-};
 
 export type GetMedicalrecordsParams = {
   page?: number;
@@ -23,7 +18,7 @@ export type UseMedicalrecordsProps = {
 
 
 
-export const getMedicalrecords = async ({ page, size, keyword }: GetMedicalrecordsParams): Promise<GetMedicalrecordsResponse> => {
+export const getMedicalrecords = async ({ page, size, keyword }: GetMedicalrecordsParams): Promise<PaginatedMedicalRecordResponse> => {
   const response = await axios.get(`/medical-records`, {
     params: {
       page,

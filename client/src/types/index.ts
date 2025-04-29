@@ -1,6 +1,8 @@
 
 // ==========================
 
+import { Member } from "../stores/MemberStore";
+
 export type Meta = {
     current_page: number;
     per_page: number;
@@ -112,3 +114,52 @@ export interface MemberAndUserSelecter {
     height: number;
     weight: number;
 }
+
+
+export type MemberSummary123 = {
+    memberId: number;
+    fullName: string;
+};
+
+export interface Medication {
+    id?: number;
+    position: number;
+    name: string;
+    frequency?: string;
+    startDate: string;
+    endDate?: string;
+}
+
+export interface Document {
+    id?: number;
+    position: number;
+    size: number;
+    name: string;
+    type: string;
+    path: string;
+}
+
+
+
+export interface PaginatedMedicalRecordResponse {
+    items: MedicalRecord[];
+    meta: Meta;
+}
+
+
+
+
+export interface MedicalRecord {
+    id: number;
+    member: MemberSummary123;
+    date: string;
+    doctor: string;
+    symptoms: string;
+    diagnosis: string;
+    treatment: string;
+    facilityName: string;
+    medications: Medication[];
+    documents: Document[];
+}
+
+

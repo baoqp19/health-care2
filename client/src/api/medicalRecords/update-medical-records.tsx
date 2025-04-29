@@ -2,8 +2,9 @@ import axios from "../../axios/axios-customize"
 import { AxiosResponse } from 'axios';
 import { useMutation, UseMutationOptions, useQueryClient } from '@tanstack/react-query';
 import { ROW_PER_PAGE } from '../../config/constants';
-import { MedicalRecord, UpdateMedicalRecordParams } from "../../stores/medicalRecordStore";
+import { UpdateMedicalRecordParams } from "../../stores/medicalRecordStore";
 import { getMedicalrecordsQueryOptions } from "./get-medical-records";
+import { MedicalRecord } from "../../types";
 
 
 export const updateMedicalRecord = async ({ recordID, data }: UpdateMedicalRecordParams): Promise<MedicalRecord> => {

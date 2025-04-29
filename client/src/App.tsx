@@ -18,15 +18,17 @@ type AuthProviderProps = {
 };
 
 // Cấu hình QueryClient với options phù hợp
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      retry: 1,
-      refetchOnWindowFocus: false,
-      staleTime: 5 * 60 * 1000, // 5 phút
-    },
-  },
-});
+// const queryClient = new QueryClient({
+//   defaultOptions: {
+//     queries: {
+//       retry: 1,
+//       refetchOnWindowFocus: false,
+//       staleTime: 5 * 60 * 1000, // 5 phút
+//     },
+//   },
+// });
+
+const queryClient = new QueryClient()
 
 
 function App() {
@@ -60,10 +62,10 @@ function App() {
   );
 }
 const AuthProvider = ({ children }: AuthProviderProps) => {
-  const { data, isSuccess, isFetching } = useAccount({
-    refetchInterval: false,
-    refetchOnMount: true,
-  });
+  const { data, isSuccess, isFetching } = useAccount(
+    // refetchInterval: false,
+    // refetchOnMount: true,
+  );
 
 
   const { setIsAuthenticated, setUser } = useAuthStore((state) => state);

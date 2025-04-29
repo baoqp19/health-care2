@@ -21,7 +21,7 @@ const ChatPage = Loadable(React.lazy(() => import('../pages/manager/Chatpage')))
 export const DashboardRoutes = [
   {
     path: '/manager',
-    element: <PrivateRoute element={<DashboardLayout />} />,
+    element: <DashboardLayout />,
     children: [
       {
         path: 'members',

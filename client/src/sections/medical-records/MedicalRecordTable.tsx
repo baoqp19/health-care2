@@ -9,31 +9,38 @@ export const MedicalRecordTable = () => {
   const columns = useMedicalRecordColumns();
   const [page, setPage] = useState(1);
   const [keyword, setKeyword] = useState("");
+  const [pageSize, setPageSize] = useState(ROW_PER_PAGE);
 
-  const { data: medicalRecords, isLoading } = useMedicalrecords({
+  const { data, isLoading } = useMedicalrecords({
     page,
-    size: ROW_PER_PAGE,
+    size: pageSize,
     keyword,
   });
 
-  const MedicalRecords = Array.isArray(medicalRecords) ? medicalRecords : []
+  const MedicalRecords = Array.isArray(data) ? data : []
 
 
   return (
     <>
       <Table
         columns={columns}
-        // dataSource={MedicalRecords}
-        dataSource={[]}
-        size="middle"
-        rowKey={(record) => record.recordID}
+        dataSource={data?.items || []}
+        size="small"
+        rowKey={(record) => record.id}
         pagination={{
-          current: page,
-          pageSize: ROW_PER_PAGE,
-          total: 4,
+          current: data?.meta?.current_page,
+          pageSize: data?.meta?.per_page,
+          total: data?.meta?.total_elements,
+          showSizeChanger: true,
+          pageSizeOptions: ["8", "10", "20", "50", "100"],
+          onShowSizeChange: (current, size) => {
+            setPageSize(size);
+            setPage(1);
+          },
           onChange: (newPage) => setPage(newPage),
         }}
         loading={isLoading}
+        scroll={{ x: "max-content" }}
         title={() => (
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <Input.Search

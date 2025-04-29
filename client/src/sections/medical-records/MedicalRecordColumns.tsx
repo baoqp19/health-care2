@@ -1,10 +1,11 @@
 import { useMemo } from "react";
 import { Button, message, Popconfirm, Space } from "antd";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
-import { MedicalRecord, useMedicalRecordsStore } from "../../stores/medicalRecordStore";
+import { useMedicalRecordsStore } from "../../stores/medicalRecordStore";
 import { useDeleteMedicalRecord } from "../../api/medicalRecords/delete-medical-records";
 import { ColumnType } from "antd/es/table";
 import { useTranslation } from "react-i18next";
+import { MedicalRecord } from "../../types";
 
 const useMedicalRecordColumns = () => {
   const { setOpenUpdateModal, setMedicalRecord } = useMedicalRecordsStore((state) => state);
@@ -42,7 +43,7 @@ const useMedicalRecordColumns = () => {
       {
         title: "Thành viên",
         dataIndex: "memberName",
-        key: "memberName"
+        render: (_, medicalRecord) => medicalRecord.member.fullName,
       },
       {
         title: "Tên cơ sở",
@@ -50,30 +51,15 @@ const useMedicalRecordColumns = () => {
         key: "facilityName",
       },
       {
-        title: "Ngày",
-        dataIndex: "date",
-        key: "date",
-        align: "center",
-      },
-      {
-        title: "Bác sĩ",
-        dataIndex: "doctor",
-        key: "doctor",
-      },
-      {
         title: "Triệu chứng",
         dataIndex: "symptoms",
         key: "symptoms",
       },
       {
-        title: "Chuẩn đoán",
-        dataIndex: "diagnosis",
-        key: "diagnosis",
-      },
-      {
-        title: "Điều trị",
-        dataIndex: "treatment",
-        key: "treatment",
+        title: "Ngày",
+        dataIndex: "date",
+        key: "date",
+        align: "center",
       },
       {
         title: "Action",
@@ -87,7 +73,7 @@ const useMedicalRecordColumns = () => {
             <Popconfirm
               title="Remove medical record"
               description="Are you sure to remove this medical record ?"
-              onConfirm={() => handleDelete(medicalRecord.recordID)}
+              onConfirm={() => handleDelete(medicalRecord.id)}
               okText="Yes"
               cancelText="No"
             >

@@ -1,38 +1,12 @@
 import { message } from 'antd';
 import { create } from 'zustand';
+import { Document, MedicalRecord, Medication, MemberSummary123 } from '../types';
 
-export interface Medication1234 {
-    position: number;
-    name: string;
-    frequency?: string;
-    startDate: string;
-    endDate?: string;
-}
 
-export interface Document1234 {
-    position: number;
-    size: number;
-    name: string;
-    type: string;
-    path: string;
-}
-
-export interface MedicalRecord {
-    recordID: number
-    memberId: number
-    date: string
-    doctor: string
-    symptoms: string
-    diagnosis: string
-    treatment: string
-    facilityName: string
-    medications: Medication1234[]
-    documents: Document1234[];
-}
 
 
 export interface MedicalRecordUpdateProps {
-    memberId: number
+    member: MemberSummary123
     date: string
     doctor: string
     symptoms: string
@@ -53,23 +27,26 @@ interface MedicalRecordsStore {
     openCreateModal: boolean;
     openUpdateModal: boolean;
     openDeleteModal: boolean;
-    listMedications: Medication1234[];
-    listDocuments: Document1234[];
+    listMedications: Medication[];
+    listDocuments: Document[];
 
-    setMedicalRecord: (medicalRecord: MedicalRecord) => void;
+    setMedicalRecord: (medicalRecord: MedicalRecord | null) => void;
     setLoading: (isLoading: boolean) => void;
     setError: (error: string | null) => void;
     setOpenCreateModal: (open: boolean) => void;
     setOpenUpdateModal: (open: boolean) => void;
     setOpenDeleteModal: (open: boolean) => void;
-    setListDocument: (listDocuments: Document1234[]) => void;
-    setListMedication: (listMedications: Medication1234[]) => void;
-
+    setListDocument: (listDocuments: Document[]) => void;
+    setListMedication: (listMedications: Medication[]) => void;
+    clearListDocument: () => void;
     addMedication: () => void;
+    clearListMedication: () => void;
+
+
     removeMedication: (position: number) => void;
     handleInputMedicationChange: (
         position: number,
-        field: keyof Medication1234,
+        field: keyof Medication,
         value: string
     ) => void;
 
@@ -79,7 +56,7 @@ interface MedicalRecordsStore {
     handleUrlFileChange: (position: number, url: string) => void;
     handleInputDocumentChange: (
         position: number,
-        field: keyof Document1234,
+        field: keyof Document,
         value: string | number
     ) => void;
 }
@@ -103,6 +80,8 @@ export const useMedicalRecordsStore = create<MedicalRecordsStore>((set) => ({
     setOpenDeleteModal: (open) => set({ openDeleteModal: open }),
     setListDocument: (listDocuments) => set({ listDocuments }),
     setListMedication: (listMedications) => set({ listMedications }),
+    clearListDocument: () => set({ listDocuments: [] }),
+    clearListMedication: () => set({ listMedications: [] }),
 
     addMedication: () =>
         set((state) => ({
